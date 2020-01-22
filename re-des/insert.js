@@ -1,18 +1,7 @@
 
-let tileOffsetCSSWorking = ["top:20.4%;left:33%;", "top:20.4%;", "top:20.4%;left:67%;", //first row
-  "top:35.2%;left:24.5%;", "top:35.2%;left:41.5%;", "top:35.2%;left:58.5%;", "top:35.2%;left:75.5%;", //second row
-  "left:16%;", "left:33%;", " ", "left:67%;", "left:84%;", //third row
-  "top:64.8%;left:24.5%;", "top:64.8%;left:41.5%;", "top:64.8%;left:58.5%;", "top:64.8%;left:75.5%;", //forth row
-  "top:79.6%;left:33%;", "top:79.6%;", "top:79.6%;left:67%;"]; //fifth row
-
-
-// let tileOffsetCSS = [" ", "top:20.4%;", "top:50%;left:60%;", //first row
-// ]; //fifth row
 let size = 17.2;
 
 let tileOffsetCSS = getOffsets(size);
-//let tileOffsetCSS = ["top:50%;left50%", "top:50%;left66.454482676%", "top:50%;left82.908965352%"];
-
 
 function getOffsets(size) {
   //THIS FUNCTION IS SO UGLY IM SO SORRY
@@ -198,29 +187,13 @@ let buildBoard = () => {
                 </div>
             </div>`
   }
-
-
-
-  // for (let [i, css] of portCSS.entries()) {
-  //   console.log(css)
-  //   document.getElementById('board').innerHTML +=
-  //     `<div class="port" style="${css}")>
-  //     </div>`
-  // }
-
 }
 
 // This method is called when the button is pressed.
 // This is how the DOM interacts with the JS part.
 let generateBoard = () => {
   event.preventDefault();
-  // console.log(`test`)
-  //state.numArray = state.numArray.sort((a, b) => { 0.5 - Math.random() })
-  // state.resourceArray.sort((a, b) => { 0.5 - Math.random() })
-  // state.numArray.reverse();
   generateTiles();
-
-
 
 }
 
@@ -228,14 +201,6 @@ let generateBoard = () => {
 // returned by gen().
 let generateTiles = () => {
 
-
-  //  let tiles = gen();
-  //   while(!passedAdjacencyTest(tiles) && !passedResourceCheck(tiles))
-  //   {
-  //     tiles = gen();
-  //     console.log("new board (before checking)")
-  //     console.log(tiles)
-  //   }
   let tiles;
   do {
     tiles = gen();

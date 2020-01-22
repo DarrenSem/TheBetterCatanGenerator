@@ -100,7 +100,24 @@ html, body {
 }
 
 .button {
-  width:80%;
+  /* width:80%;
+  height:20%;
+  position: absolute;
+  left: 10%;
+  top:10%;
+  font-size: 30px; */
+
+  width:50%;
+  height:20%;
+  position: absolute;
+  left: 40%;
+  top:10%;
+  font-size: 30px;
+
+}
+
+.select {
+  width:25%;
   height:20%;
   position: absolute;
   left: 10%;
@@ -210,14 +227,24 @@ html, body {
       background-repeat: no-repeat
     }
     .button {
-      width:80vw;
+      width:50vw;
       height:40%;
       position: absolute;
-      left: 10%;
+      left: 40%;
       top:10%;
       font-size: 30px;
 
     }
+
+    .select {
+      width:25%;
+      height:40%;
+      position: absolute;
+      left: 10%;
+      top:10%;
+      font-size: 20px;
+    }
+
 }
 
   .hex {
