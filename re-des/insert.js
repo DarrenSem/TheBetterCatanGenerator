@@ -113,6 +113,9 @@ let shuffle = (arr) => {
 let selectMode = () => {
   mode = document.getElementById('pick-mode').value;
   console.log(mode);
+  //document.getElementById('board').innerHTML = "";
+  tileOffsetCSS = getOffsets(size, mode);
+  buildBoard(mode);
   generateBoard()
 }
 
@@ -186,15 +189,19 @@ let gen = () => {
 
 let buildBoard = () => {
 
-  document.getElementById('board').innerHTML += `<div id="border"></div>`
-  for (let [id, css] of tileOffsetCSS.entries()) {
+  document.getElementById('board').innerHTML = `<div id="border"></div>`
 
-    document.getElementById('board').innerHTML +=
-      `<div class="hex" style="${css}" id="tile-${id}")>
-                <div class="circle" id="circle-${id}">
-                </div>
-            </div>`
+  if (mode == "normal") {
+    for (let [id, css] of tileOffsetCSS.entries()) {
+
+      document.getElementById('board').innerHTML +=
+        `<div class="hex" style="${css}" id="tile-${id}")>
+                  <div class="circle" id="circle-${id}">
+                  </div>
+              </div>`
+    }
   }
+
 }
 
 // This method is called when the button is pressed.
@@ -251,7 +258,7 @@ let generateTiles = () => {
 // These functions are called initially upon loading the page for the first time.
 // buildBoard() creates the HTML hexagon & chit elements for the board.
 // generateTiles() handles the displaying of the resources and numbers.
-buildBoard();
+buildBoard(mode);
 generateTiles();
 
 
