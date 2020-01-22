@@ -1,5 +1,6 @@
 
 let size = 17.2;
+let mode = document.getElementById('pick-mode').value;
 
 let tileOffsetCSS = getOffsets(size);
 
@@ -106,6 +107,13 @@ let shuffle = (arr) => {
     [arr[i], arr[j]] = [arr[j], arr[i]];
   }
   return arr;
+}
+
+
+let selectMode = () => {
+  mode = document.getElementById('pick-mode').value;
+  console.log(mode);
+  generateBoard()
 }
 
 
