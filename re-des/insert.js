@@ -212,44 +212,91 @@ function getOffsets(size, mode) {
 
 
 
-let portCSS = ["top:35%;left:10%;", "top:10%;left:60%;", "top:10%;left:26%;", "top:23%;left:85%;", "top:50%;left:97%;", "top:75%;left:83%;", "top:75%;left:83%;"]
+//let portCSS = ["top:35%;left:10%;", "top:10%;left:60%;", "top:10%;left:26%;", "top:23%;left:85%;", "top:50%;left:97%;", "top:75%;left:83%;", "top:75%;left:83%;"]
 //keeping this here for now bc im having trouble importing it
 let resourceTypes = ["ore", "sheep", "brick", "wood", "wheat", "desert"];
-let prob = ["", "", ".", "..", "...", "....", ".....", "", "....", "...", "..", "..", ".",]
+//let prob = ["", "", ".", "..", "...", "....", ".....", "", "....", "...", "..", "..", ".",]
 state = {
   numArray: [2, 3, 3, 4, 4, 5, 5, 6, 6, 8, 8, 9, 9, 10, 10, 11, 11, 12],
+  expandednumArray: [2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12],
   resourceArray: ["ore", "ore", "ore", "brick", "brick", "brick", "sheep"
     , "sheep", "sheep", "sheep", "wood", "wood", "wood", "wood",
     "wheat", "wheat", "wheat", "wheat",],
+  expandedresourceArray: ["ore", "ore", "ore", "ore", "ore", "brick", "brick", "brick", "brick", "brick", "sheep"
+    , "sheep", "sheep", "sheep", "sheep", "sheep", "wood", "wood", "wood", "wood", "wood", "wood",
+    "wheat", "wheat", "wheat", "wheat", "wheat", "wheat"],
   prob: ["", "", ".", "..", "...", "....", ".....", "", ".....", "....", "...", "..", ".",]
 
 }
 
 // Represents adjacencies of tiles on the board.
 // Format --> tile # : [adjacent tiles]
-let adjacencyList = {
 
-  0: [1, 3, 4],
-  1: [0, 2, 4, 5],
-  2: [1, 5, 6],
-  3: [0, 4, 7, 8],
-  4: [0, 1, 3, 5, 8, 9],
-  5: [1, 2, 4, 6, 9, 10],
-  6: [2, 5, 10, 11],
-  7: [3, 8, 12],
-  8: [3, 4, 7, 9, 12, 13],
-  9: [4, 5, 8, 10, 13, 14],
-  10: [5, 6, 9, 11, 14, 15],
-  11: [6, 10, 15],
-  12: [7, 8, 13, 16],
-  13: [8, 9, 12, 14, 16, 17],
-  14: [9, 10, 13, 15, 17, 18],
-  15: [10, 11, 14, 18],
-  16: [12, 13, 17],
-  17: [13, 14, 16, 18],
-  18: [14, 15, 17]
+let adjacencyList;
 
+let getAdjList = (mode) => {
+  if (mode == "normal") {
+    adjacencyList = {
+
+      0: [1, 3, 4],
+      1: [0, 2, 4, 5],
+      2: [1, 5, 6],
+      3: [0, 4, 7, 8],
+      4: [0, 1, 3, 5, 8, 9],
+      5: [1, 2, 4, 6, 9, 10],
+      6: [2, 5, 10, 11],
+      7: [3, 8, 12],
+      8: [3, 4, 7, 9, 12, 13],
+      9: [4, 5, 8, 10, 13, 14],
+      10: [5, 6, 9, 11, 14, 15],
+      11: [6, 10, 15],
+      12: [7, 8, 13, 16],
+      13: [8, 9, 12, 14, 16, 17],
+      14: [9, 10, 13, 15, 17, 18],
+      15: [10, 11, 14, 18],
+      16: [12, 13, 17],
+      17: [13, 14, 16, 18],
+      18: [14, 15, 17]
+
+    }
+  } else {
+    adjacencyList = {
+
+      0: [1, 2, 4],
+      1: [3, 4, 7],
+      2: [4, 5, 8],
+      3: [6, 7, 10],
+      4: [7, 8, 11],
+      5: [8, 9, 12],
+      6: [3, 10, 13],
+      7: [1, 3, 4, 10, 11, 14],
+      8: [2, 4, 5, 11, 12, 15],
+      9: [5, 12, 16],
+      10: [3, 6, 7, 13, 14, 17],
+      11: [4, 7, 8, 14, 15, 18],
+      12: [5, 8, 9, 15, 16, 19],
+      13: [6, 10, 17, 20],
+      14: [7, 10, 11, 17, 18, 21],
+      15: [8, 11, 12, 18, 19, 22],
+      16: [9, 12, 19, 23],
+      17: [10, 13, 14, 20, 21, 24],
+      18: [11, 14, 15, 21, 22, 25],
+      19: [12, 15, 16, 22, 23, 26],
+      20: [13, 17, 24],
+      21: [14, 17, 18, 24, 25, 27],
+      22: [15, 18, 19, 25, 26, 28],
+      23: [16, 19, 26],
+      24: [17, 20, 21, 27],
+      25: [18, 21, 22, 27, 28, 29],
+      26: [19, 22, 23, 28],
+      27: [21, 24, 25, 29],
+      28: [22, 25, 26, 29],
+      29: [25, 27, 28],
+    }
+
+  }
 }
+
 
 let ports = ["wood-port", "wheat-port", "sheep-port", "brick-port", "three-port", "ore-port", "three-port", "three-port", "three-port",]
 
@@ -280,10 +327,10 @@ let selectMode = () => {
   } else {
     size = 15;
   }
+  getAdjList(mode);
   tileOffsetCSS = getOffsets(size, mode);
   buildBoard(mode);
-
-  if (mode == "normal") { generateBoard() }
+  generateBoard();
 
 }
 
@@ -329,10 +376,18 @@ let passedResourceCheck = (tilesArr) => {
 // This method just creates and returns the array of tiles (tile information)
 // that generateTiles() uses to present the tiles to the board in HTML form.
 let gen = () => {
+  let randomNumbers;
+  let randomResources;
+  if (mode == "normal") {
+    randomNumbers = shuffle(this.state.numArray)
+    randomResources = shuffle(this.state.resourceArray)
+  } else {
+    randomNumbers = shuffle(this.state.expandednumArray)
+    randomResources = shuffle(this.state.expandedresourceArray)
+  }
 
-  let randomNumbers = shuffle(this.state.numArray)
-  let randomResources = shuffle(this.state.resourceArray)
   let probArr = this.state.prob;
+
   let tiles = []
 
   for (let x in randomNumbers) {
@@ -343,11 +398,16 @@ let gen = () => {
     tiles.push(tile)
   }
 
+
   let desert = Object()
   desert.resource = "desert"
   desert.chit = ""
   desert.probability = ""
   tiles.push(desert)
+
+  if (mode == "expanded") {
+    tiles.push(desert)
+  }
 
   //console.log(tiles)
   return shuffle(tiles)
@@ -358,7 +418,12 @@ let gen = () => {
 
 let buildBoard = () => {
 
-  document.getElementById('board').innerHTML = `<div id="border"></div>`
+  if (mode == "normal") {
+    document.getElementById('board').innerHTML = `<div id="border"></div>`
+  } else {
+    document.getElementById('board').innerHTML = `<div id="border-expanded"></div>`
+  }
+
 
   if (mode == "normal") {
     for (let [id, css] of tileOffsetCSS.entries()) {
@@ -436,6 +501,7 @@ let generateTiles = () => {
 // These functions are called initially upon loading the page for the first time.
 // buildBoard() creates the HTML hexagon & chit elements for the board.
 // generateTiles() handles the displaying of the resources and numbers.
+getAdjList(mode);
 buildBoard(mode);
 generateTiles();
 

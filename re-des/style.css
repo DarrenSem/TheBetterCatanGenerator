@@ -99,6 +99,24 @@ html, body {
   background-repeat: no-repeat
 }
 
+#borderExpanded {
+  width:99vh;
+  height: calc(99vh * 1.732050808 / 2);
+  background: rgb(0,153,211);
+  position: absolute;
+  left: 50%;
+  overflow: hidden;
+  top: 50%;
+  transform: translate(-50%, -50%);/*rotate(30deg); */
+  overflow-x: hidden;
+  /* background: url(./assets/background.png); */
+  background-size: 100% 100%;
+  background-repeat: no-repeat
+}
+
+
+
+
 .button {
   /* width:80%;
   height:20%;
