@@ -263,11 +263,45 @@ html, body {
     background-repeat: no-repeat
   }
 
+  .hex-expanded {
+
+    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    height:15.5%;
+    width: calc(15.5% * 1.732050808 / 2);
+    background: rgb(71, 70, 70);
+    /* POSITIONING */
+    position: absolute;
+
+    /* transform: rotate(30%); */
+
+
+    transform-origin: 50% 50%;
+    left: 50%;
+    top: 50%;
+    transform:  translate(-50%, -50%) rotate(90deg);
+    background-size: auto 100%;
+    background-repeat: no-repeat
+  }
+
   .circle {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    height: calc(40% * 1.73205 / 2);
+    width: 40%;
+    border: 1px solid black;
+    background:rgb(227, 197, 134);
+    border-radius: 50%;
+
+  }
+
+  .circle-expanded {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform:  translate(-50%, -50%) rotate(-90deg);
     height: calc(40% * 1.73205 / 2);
     width: 40%;
     border: 1px solid black;

@@ -1,51 +1,211 @@
 
-let size = 17.2;
+let size;
 let mode = document.getElementById('pick-mode').value;
+if (mode == "normal") {
+  size = 17.2;
+} else {
+  size = 15.5;
+}
 
-let tileOffsetCSS = getOffsets(size);
+let tileOffsetCSS = getOffsets(size, mode);
 
-function getOffsets(size) {
+function getOffsets(size, mode) {
   //THIS FUNCTION IS SO UGLY IM SO SORRY
   let wO = (size * 1.732050808 / 2);
   let hO = size;
   let ans = [];
+  let startingY;
+  let startingX;
 
-  let startingY = 50 - 2 * (hO * .75);
-  let startingX = 50 - wO;
+  if (mode == "normal") {
 
-  for (let i = 0; i < 3; i++) {
-    ans.push(`top:${startingY}%;left:${startingX + i * (wO)}%`)
-  }
+    wO = (size * 1.732050808 / 2);
+    hO = size;
 
-  startingY = 50 - 1 * (hO * .75);
-  startingX = 50 - wO * (1.5);
+    startingY = 50 - 2 * (hO * .75);
+    startingX = 50 - wO;
 
-  for (let i = 0; i < 4; i++) {
-    ans.push(`top:${startingY}%;left:${startingX + i * (wO)}%`)
-  }
+    for (let i = 0; i < 3; i++) {
+      ans.push(`top:${startingY}%;left:${startingX + i * (wO)}%`)
+    }
 
-  startingY = 50;
-  startingX = 50 - wO * (2);
+    startingY = 50 - 1 * (hO * .75);
+    startingX = 50 - wO * (1.5);
 
-  for (let i = 0; i < 5; i++) {
-    ans.push(`top:${startingY}%;left:${startingX + i * (wO)}%`)
-  }
+    for (let i = 0; i < 4; i++) {
+      ans.push(`top:${startingY}%;left:${startingX + i * (wO)}%`)
+    }
 
+    startingY = 50;
+    startingX = 50 - wO * (2);
 
-
-  startingY = 50 + 1 * (hO * .75);
-  startingX = 50 - wO * (1.5);
-
-  for (let i = 0; i < 4; i++) {
-    ans.push(`top:${startingY}%;left:${startingX + i * (wO)}%`)
-  }
-
-  startingY = 50 + 2 * (hO * .75);
-  startingX = 50 - wO;
+    for (let i = 0; i < 5; i++) {
+      ans.push(`top:${startingY}%;left:${startingX + i * (wO)}%`)
+    }
 
 
-  for (let i = 0; i < 3; i++) {
-    ans.push(`top:${startingY}%;left:${startingX + i * (wO)}%`)
+
+    startingY = 50 + 1 * (hO * .75);
+    startingX = 50 - wO * (1.5);
+
+    for (let i = 0; i < 4; i++) {
+      ans.push(`top:${startingY}%;left:${startingX + i * (wO)}%`)
+    }
+
+    startingY = 50 + 2 * (hO * .75);
+    startingX = 50 - wO;
+
+
+    for (let i = 0; i < 3; i++) {
+      ans.push(`top:${startingY}%;left:${startingX + i * (wO)}%`)
+    }
+  } else {
+
+
+    h0 = (size * 1.732050808 / 2);
+    w0 = size;
+    console.log(size)
+    console.log(w0)
+
+    //FIRST ROW
+    startingY = 50 - 2.5 * (h0);
+    startingX = 50;
+    ans.push(`top:${startingY}%;left:${startingX}%`)
+
+    //SECOND ROW
+    startingY = 50 - 2 * (h0);
+    startingX = 50 - .75 * w0;
+
+    for (let i = 0; i < 2; i++) {
+      ans.push(`top:${startingY}%;left:${startingX + i * (wO * 1.75)}%`)
+    }
+
+    //ROW 3
+    startingY = 50 - 1.5 * (h0);
+    startingX = 50 - 1.5 * w0;
+    for (let i = 0; i < 3; i++) {
+      ans.push(`top:${startingY}%;left:${startingX + i * (wO * 1.75)}%`)
+    }
+
+    //R0W 4
+    startingY = 50 - 1 * (h0);
+    startingX = 50 - (3 * .75) * w0;
+
+    for (let i = 0; i < 4; i++) {
+      ans.push(`top:${startingY}%;left:${startingX + i * (wO * 1.75)}%`)
+    }
+
+    //ROW 5
+    startingY = 50 - .5 * (h0);
+    startingX = 50 - 1.5 * w0;
+    for (let i = 0; i < 3; i++) {
+      ans.push(`top:${startingY}%;left:${startingX + i * (wO * 1.75)}%`)
+    }
+
+    //R0W 6
+    startingY = 50;
+    startingX = 50 - (3 * .75) * w0;
+
+    for (let i = 0; i < 4; i++) {
+      ans.push(`top:${startingY}%;left:${startingX + i * (wO * 1.75)}%`)
+    }
+
+    //ROW 5
+    startingY = 50 + .5 * (h0);
+    startingX = 50 - 1.5 * w0;
+    for (let i = 0; i < 3; i++) {
+      ans.push(`top:${startingY}%;left:${startingX + i * (wO * 1.75)}%`)
+    }
+
+    //R0W 7
+    startingY = 50 + 1 * (h0);
+    startingX = 50 - (3 * .75) * w0;
+
+    for (let i = 0; i < 4; i++) {
+      ans.push(`top:${startingY}%;left:${startingX + i * (wO * 1.75)}%`)
+    }
+
+    //ROW 8
+
+    startingY = 50 + 1.5 * (h0);
+    startingX = 50 - 1.5 * w0;
+    for (let i = 0; i < 3; i++) {
+      ans.push(`top:${startingY}%;left:${startingX + i * (wO * 1.75)}%`)
+    }
+
+    //ROW 9
+    startingY = 50 + 2 * (h0);
+    startingX = 50 - .75 * w0;
+
+    for (let i = 0; i < 2; i++) {
+      ans.push(`top:${startingY}%;left:${startingX + i * (wO * 1.75)}%`)
+    }
+
+    //ROW 10
+    startingY = 50 + 2.5 * (h0);
+    startingX = 50;
+    ans.push(`top:${startingY}%;left:${startingX}%`)
+
+
+
+
+
+
+
+
+
+    //ans.push(`top:${startingY}%;left:${startingX}%`)
+
+
+    // startingY = 50 - .5 * (h0);
+    // startingX = 50;
+    // ans.push(`top:${startingY}%;left:${startingX}%`)
+
+    // startingY = 50 - 1.5 * (h0);
+    // startingX = 50;
+    // ans.push(`top:${startingY}%;left:${startingX}%`)
+
+
+
+
+
+    // startingY = 50 - 1.5 * (h0);
+    // startingX = 50 + .75 * (w0 * 2);
+    // ans.push(`top:${startingY}%;left:${startingX}%`)
+
+
+    // startingY = 50 - 1 * (h0);
+    // startingX = 50 + .75 * (w0 * 3);
+    // ans.push(`top:${startingY}%;left:${startingX}%`)
+
+
+
+
+    // startingY = 50 - 1.5 * (hO * 1);
+    // startingX = 50;
+    // ans.push(`top:${startingY}%;left:${startingX}%`)
+
+
+    // h0 = (size * 1.732050808 / 2);
+    // w0 = size;
+
+    // startingY = 50 - 2.5 * (hO * 1);
+    // startingX = 50;
+
+    // //ROW 1
+    // for (let i = 0; i < 1; i++) {
+    //   ans.push(`top:${startingY}%;left:${startingX + i * (wO)}%`)
+    // }
+
+    // //ROW 2
+    // startingY = 50 - 2 * (h0);
+    // startingX = 50 - 0 * (.5);
+
+    // for (let i = 0; i < 2; i++) {
+    //   ans.push(`top:${startingY}%;left:${startingX + i * (wO)}%`)
+    // }
+
+
   }
   return ans;
 }
@@ -114,9 +274,17 @@ let selectMode = () => {
   mode = document.getElementById('pick-mode').value;
   console.log(mode);
   //document.getElementById('board').innerHTML = "";
+
+  if (mode == "normal") {
+    size = 17.2;
+  } else {
+    size = 15;
+  }
   tileOffsetCSS = getOffsets(size, mode);
   buildBoard(mode);
-  generateBoard()
+
+  if (mode == "normal") { generateBoard() }
+
 }
 
 
@@ -161,6 +329,7 @@ let passedResourceCheck = (tilesArr) => {
 // This method just creates and returns the array of tiles (tile information)
 // that generateTiles() uses to present the tiles to the board in HTML form.
 let gen = () => {
+
   let randomNumbers = shuffle(this.state.numArray)
   let randomResources = shuffle(this.state.resourceArray)
   let probArr = this.state.prob;
@@ -197,6 +366,15 @@ let buildBoard = () => {
       document.getElementById('board').innerHTML +=
         `<div class="hex" style="${css}" id="tile-${id}")>
                   <div class="circle" id="circle-${id}">
+                  </div>
+              </div>`
+    }
+  } else if (mode == "expanded") {
+    for (let [id, css] of tileOffsetCSS.entries()) {
+      console.log("aaaa")
+      document.getElementById('board').innerHTML +=
+        `<div class="hex-expanded" style="${css}" id="tile-${id}")>
+                  <div class="circle-expanded" id="circle-${id}">
                   </div>
               </div>`
     }
