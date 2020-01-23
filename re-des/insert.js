@@ -1,16 +1,40 @@
+let resourceTypes = ["ore", "sheep", "brick", "wood", "wheat", "desert"];
 
+// adjacencyList, given a tile number, lists tiles adjacent to that tile. Used for rule checking.
+let adjacencyList;
+
+state = {
+  numArray: [2, 3, 3, 4, 4, 5, 5, 6, 6, 8, 8, 9, 9, 10, 10, 11, 11, 12],
+  expandednumArray: [2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12],
+  resourceArray: ["ore", "ore", "ore", "brick", "brick", "brick", "sheep"
+    , "sheep", "sheep", "sheep", "wood", "wood", "wood", "wood",
+    "wheat", "wheat", "wheat", "wheat",],
+  expandedresourceArray: ["ore", "ore", "ore", "ore", "ore", "brick", "brick", "brick", "brick", "brick", "sheep"
+    , "sheep", "sheep", "sheep", "sheep", "sheep", "wood", "wood", "wood", "wood", "wood", "wood",
+    "wheat", "wheat", "wheat", "wheat", "wheat", "wheat"],
+  prob: ["", "", ".", "..", "...", "....", ".....", "", ".....", "....", "...", "..", ".",]
+}
+
+
+
+// Variable size corresponds to the size of the hexagons in the CSS file.
 let size;
+// Determine the mode using the pick mode selector, set corresponding value for size.
 let mode = document.getElementById('pick-mode').value;
 if (mode == "normal") {
   size = 17.2;
 } else {
-  size = 15.5;
+  size = 15;
 }
 
+// This is matches each tile to its corresponding offset depending on the mode.
+// Used by the buildTiles function.
 let tileOffsetCSS = getOffsets(size, mode);
 
+// This function calculates the offsets of each hex.
 function getOffsets(size, mode) {
-  //THIS FUNCTION IS SO UGLY IM SO SORRY
+  //THIS FUNCTION IS SO UGLY IM SO SORRY apology not accepted
+  // wO represents the width of a hex. The ugly number is (sqrt(3)/2).
   let wO = (size * 1.732050808 / 2);
   let hO = size;
   let ans = [];
@@ -147,97 +171,14 @@ function getOffsets(size, mode) {
     ans.push(`top:${startingY}%;left:${startingX}%`)
 
 
-
-
-
-
-
-
-
-    //ans.push(`top:${startingY}%;left:${startingX}%`)
-
-
-    // startingY = 50 - .5 * (h0);
-    // startingX = 50;
-    // ans.push(`top:${startingY}%;left:${startingX}%`)
-
-    // startingY = 50 - 1.5 * (h0);
-    // startingX = 50;
-    // ans.push(`top:${startingY}%;left:${startingX}%`)
-
-
-
-
-
-    // startingY = 50 - 1.5 * (h0);
-    // startingX = 50 + .75 * (w0 * 2);
-    // ans.push(`top:${startingY}%;left:${startingX}%`)
-
-
-    // startingY = 50 - 1 * (h0);
-    // startingX = 50 + .75 * (w0 * 3);
-    // ans.push(`top:${startingY}%;left:${startingX}%`)
-
-
-
-
-    // startingY = 50 - 1.5 * (hO * 1);
-    // startingX = 50;
-    // ans.push(`top:${startingY}%;left:${startingX}%`)
-
-
-    // h0 = (size * 1.732050808 / 2);
-    // w0 = size;
-
-    // startingY = 50 - 2.5 * (hO * 1);
-    // startingX = 50;
-
-    // //ROW 1
-    // for (let i = 0; i < 1; i++) {
-    //   ans.push(`top:${startingY}%;left:${startingX + i * (wO)}%`)
-    // }
-
-    // //ROW 2
-    // startingY = 50 - 2 * (h0);
-    // startingX = 50 - 0 * (.5);
-
-    // for (let i = 0; i < 2; i++) {
-    //   ans.push(`top:${startingY}%;left:${startingX + i * (wO)}%`)
-    // }
-
-
   }
   return ans;
 }
 
-
-
-//let portCSS = ["top:35%;left:10%;", "top:10%;left:60%;", "top:10%;left:26%;", "top:23%;left:85%;", "top:50%;left:97%;", "top:75%;left:83%;", "top:75%;left:83%;"]
-//keeping this here for now bc im having trouble importing it
-let resourceTypes = ["ore", "sheep", "brick", "wood", "wheat", "desert"];
-//let prob = ["", "", ".", "..", "...", "....", ".....", "", "....", "...", "..", "..", ".",]
-state = {
-  numArray: [2, 3, 3, 4, 4, 5, 5, 6, 6, 8, 8, 9, 9, 10, 10, 11, 11, 12],
-  expandednumArray: [2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12],
-  resourceArray: ["ore", "ore", "ore", "brick", "brick", "brick", "sheep"
-    , "sheep", "sheep", "sheep", "wood", "wood", "wood", "wood",
-    "wheat", "wheat", "wheat", "wheat",],
-  expandedresourceArray: ["ore", "ore", "ore", "ore", "ore", "brick", "brick", "brick", "brick", "brick", "sheep"
-    , "sheep", "sheep", "sheep", "sheep", "sheep", "wood", "wood", "wood", "wood", "wood", "wood",
-    "wheat", "wheat", "wheat", "wheat", "wheat", "wheat"],
-  prob: ["", "", ".", "..", "...", "....", ".....", "", ".....", "....", "...", "..", ".",]
-
-}
-
-// Represents adjacencies of tiles on the board.
-// Format --> tile # : [adjacent tiles]
-
-let adjacencyList;
-
+// This function returns the appropriate adjacency list depending on the mode.
 let getAdjList = (mode) => {
   if (mode == "normal") {
     adjacencyList = {
-
       0: [1, 3, 4],
       1: [0, 2, 4, 5],
       2: [1, 5, 6],
@@ -261,7 +202,6 @@ let getAdjList = (mode) => {
     }
   } else {
     adjacencyList = {
-
       0: [1, 2, 4],
       1: [3, 4, 7],
       2: [4, 5, 8],
@@ -293,14 +233,8 @@ let getAdjList = (mode) => {
       28: [22, 25, 26, 29],
       29: [25, 27, 28],
     }
-
   }
 }
-
-
-let ports = ["wood-port", "wheat-port", "sheep-port", "brick-port", "three-port", "ore-port", "three-port", "three-port", "three-port",]
-
-
 
 
 
@@ -317,27 +251,20 @@ let shuffle = (arr) => {
 }
 
 
+
+// This function is used to grab the value of the mode from the selector and perform the corresponding changes.
+// The value of size is changed, the adjacency list is retrieved, and the offsets are retrieved.
+// The changed board is then built and generated.
 let selectMode = () => {
   mode = document.getElementById('pick-mode').value;
-  console.log(mode);
-  //document.getElementById('board').innerHTML = "";
-
   if (mode == "normal") {
     size = 17.2;
   } else {
     size = 15;
   }
-  getAdjList(mode);
   tileOffsetCSS = getOffsets(size, mode);
-  buildBoard(mode);
-  generateBoard();
-
+  start()
 }
-
-
-// Checks the adjacencies of the specified tile.
-// Returns true if adjacency present.
-// Returns false if no adjacency present.
 
 
 
@@ -357,6 +284,10 @@ let passedAdjacencyTest = (tilesArr) => {
   return true
 }
 
+
+
+// Checks over each tile in the board and checks if any two of its adjacent tiles are of the same resource.
+// If 2 or more are of the same resource, the board fails the resource check. Otherwise, it passes.
 let passedResourceCheck = (tilesArr) => {
   for (let [boardLocation, tile] of tilesArr.entries()) {
     let resource = tile.resource
@@ -373,11 +304,13 @@ let passedResourceCheck = (tilesArr) => {
 
 
 
-// This method just creates and returns the array of tiles (tile information)
-// that generateTiles() uses to present the tiles to the board in HTML form.
-let gen = () => {
+// This method just creates and returns the array of tiles (tile content)
+// that fillTiles() uses to present the tiles to the board in HTML form.
+let generateTileContent = () => {
   let randomNumbers;
   let randomResources;
+
+  // Selects appropriate number and resource arrays depending on the board mode.
   if (mode == "normal") {
     randomNumbers = shuffle(this.state.numArray)
     randomResources = shuffle(this.state.resourceArray)
@@ -386,10 +319,13 @@ let gen = () => {
     randomResources = shuffle(this.state.expandedresourceArray)
   }
 
+  // Grabs the array of probability dots corresponding to numbers.
   let probArr = this.state.prob;
 
+  // Initialize the array to hold completed tiles.
   let tiles = []
 
+  // Creates the tiles. Fills in the number, resource, and probability of the object, pushes it to tiles array.
   for (let x in randomNumbers) {
     let tile = Object()
     tile.chit = randomNumbers[x]
@@ -398,70 +334,48 @@ let gen = () => {
     tiles.push(tile)
   }
 
-
+  // Creates the desert tile (no number, no probability), and adds it to tiles array.
   let desert = Object()
   desert.resource = "desert"
   desert.chit = ""
   desert.probability = ""
   tiles.push(desert)
 
+  // If mode is expanded, add another desert tile.
   if (mode == "expanded") {
     tiles.push(desert)
   }
 
-  //console.log(tiles)
+  // Returns the array of "filled" tile objects.
   return shuffle(tiles)
 }
 
 
-////end what should not be in this file
 
-let buildBoard = () => {
+// buildTiles() creates the HTML hexagon & chit elements for the board.
+let buildTiles = () => {
 
-  if (mode == "normal") {
-    document.getElementById('board').innerHTML = `<div id="border"></div>`
-  } else {
-    document.getElementById('board').innerHTML = `<div id="border-expanded"></div>`
-  }
+  document.getElementById('board').innerHTML = `<div id="border-${mode}"></div>`
 
-
-  if (mode == "normal") {
-    for (let [id, css] of tileOffsetCSS.entries()) {
-
-      document.getElementById('board').innerHTML +=
-        `<div class="hex" style="${css}" id="tile-${id}")>
-                  <div class="circle" id="circle-${id}">
+  for (let [id, css] of tileOffsetCSS.entries()) {
+    document.getElementById('board').innerHTML +=
+      `<div class="hex-${mode}" style="${css}" id="tile-${id}")>
+                  <div class="circle-${mode}" id="circle-${id}">
                   </div>
               </div>`
-    }
-  } else if (mode == "expanded") {
-    for (let [id, css] of tileOffsetCSS.entries()) {
-      console.log("aaaa")
-      document.getElementById('board').innerHTML +=
-        `<div class="hex-expanded" style="${css}" id="tile-${id}")>
-                  <div class="circle-expanded" id="circle-${id}">
-                  </div>
-              </div>`
-    }
   }
-
 }
 
-// This method is called when the button is pressed.
-// This is how the DOM interacts with the JS part.
-let generateBoard = () => {
-  event.preventDefault();
-  generateTiles();
 
-}
 
-// This handles the HTML component/displaying of the tiles using the array
-// returned by gen().
-let generateTiles = () => {
+// This function ties together the results of generateTileContent() and buildTiles().
+// In other words, it populates the HTML created by buildTiles() with the content
+// created by generateTileContent().
+let fillTiles = () => {
 
   let tiles;
   do {
-    tiles = gen();
+    tiles = generateTileContent();
   } while (!passedAdjacencyTest(tiles) || !passedResourceCheck(tiles))
 
 
@@ -469,9 +383,6 @@ let generateTiles = () => {
 
     let theTile = document.getElementById(`tile-${id}`);
     let theCircle = document.getElementById(`circle-${id}`);
-
-    //console.log(theTile.classList)
-
 
     for (let currentResource of theTile.classList) {
       if (resourceTypes.includes(currentResource)) {
@@ -486,7 +397,6 @@ let generateTiles = () => {
       theTile.classList.add("high-prob")
     } else {
       theTile.classList.remove("high-prob")
-      //theTile.style.color = "black";
     }
 
     if (tile.resource == "desert") {
@@ -498,26 +408,41 @@ let generateTiles = () => {
   }
 }
 
-// These functions are called initially upon loading the page for the first time.
-// buildBoard() creates the HTML hexagon & chit elements for the board.
-// generateTiles() handles the displaying of the resources and numbers.
-getAdjList(mode);
-buildBoard(mode);
-generateTiles();
+
+
+// This method is called when the button is pressed.
+// This is how the DOM interacts with the JS part.
+let generateBoard = () => {
+  event.preventDefault();
+  fillTiles();
+}
 
 
 
-// theTile.style.backgroundImage = `url(./assets/${tile.resource}.png)`;
+// A function called initially and also when mode is switched to start board generation.
+let start = () => {
+  // These functions are called initially upon loading the page for the first time.
+  getAdjList(mode);
+  buildTiles(mode);
+  fillTiles();
+}
 
-//  document.getElementById(`tile-${id}`).classList.add(tile.resource);
 
-// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
-let vh = window.innerHeight * 0.01;
-// Then we set the value in the --vh custom property to the root of the document
-document.documentElement.style.setProperty('--vh', `${vh}px`);
 
-window.addEventListener('resize', () => {
-  // We execute the same script as before
-  let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-});
+// Start the board baby. Called when page is opened, or when mode is changed.
+start();
+
+// -----------------------------------------------------------------------------------------------------
+
+// Delete this maybe later, but might need it for mobile, so for now it stays.
+
+// // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+// let vh = window.innerHeight * 0.01;
+// // Then we set the value in the --vh custom property to the root of the document
+// document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+// window.addEventListener('resize', () => {
+//   // We execute the same script as before
+//   let vh = window.innerHeight * 0.01;
+//   document.documentElement.style.setProperty('--vh', `${vh}px`);
+// });

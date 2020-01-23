@@ -84,7 +84,7 @@ html, body {
   background: url(./assets/background.png);
 }
 
-#border {
+#border-normal {
   width:99vh;
   height: calc(99vh * 1.732050808 / 2);
   background: rgb(0,153,211);
@@ -230,7 +230,7 @@ html, body {
       background: rgb(200,153,211);
     }
 
-    #border {
+    #border-normal {
       width:99vw;
       height: calc(99vw * 1.732050808 / 2);
       background: rgb(0,153,211);
@@ -265,7 +265,7 @@ html, body {
 
 }
 
-  .hex {
+  .hex-normal {
 
     -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
@@ -302,7 +302,7 @@ html, body {
     background-repeat: no-repeat
   }
 
-  .circle {
+  .circle-normal {
     position: absolute;
     left: 50%;
     top: 50%;
