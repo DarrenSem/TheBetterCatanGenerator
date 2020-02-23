@@ -81,7 +81,7 @@ html, body {
   transform: translate(-50%, -50%);/*rotate(30deg); */
   overflow-x: hidden;
   background-size: 100% 100%;
-  background: url(./assets/background.png);
+  background: url(./assets/background_new3.png);
 }
 
 #border-normal {
@@ -94,7 +94,7 @@ html, body {
   top: 50%;
   transform: translate(-50%, -50%);/*rotate(30deg); */
   overflow-x: hidden;
-  background: url(./assets/background.png);
+  background: url(./assets/background_new3.png);
   background-size: 100% 100%;
   background-repeat: no-repeat
 }
@@ -328,13 +328,15 @@ html, body {
 
   }
 
-  .high-prob h3 {
-    color: red;
-  }
+
 
  .high-prob h2
   {
     color: red;
+  }
+
+  .high-prob-normal h2 {
+
   }
 
 
@@ -343,35 +345,35 @@ html, body {
 
   .sheep
   {
-    background: url(./assets/sheep.png);
+    background: url(./assets/sheep_new.png);
     background-size: auto 100%;
     background-repeat: no-repeat
   }
 
   .wheat
   {
-    background: url(./assets/wheat.png);
+    background: url(./assets/wheat_new.png);
     background-size: auto 100%;
     background-repeat: no-repeat
   }
 
   .wood
   {
-     background: url(./assets/wood.png);
+     background: url(./assets/wood_new.png);
     background-size: auto 100%;
     background-repeat: no-repeat
   }
 
   .brick
   {
-    background: url(./assets/brick.png);
+    background: url(./assets/brick_new.png);
     background-size: auto 100%;
     background-repeat: no-repeat
   }
 
   .ore
   {
-    background: url(./assets/ore.png);
+    background: url(./assets/ore_new.png);
     background-size: auto 100%;
     background-repeat: no-repeat
   }
@@ -379,7 +381,7 @@ html, body {
 
   .desert
   {
-    background: url(./assets/desert.png);
+    background: url(./assets/desert_new.png);
     background-size: auto 100%;
     background-repeat: no-repeat
   }

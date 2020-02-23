@@ -175,7 +175,7 @@ let fillTiles = () => {
             }
         }
         theTile.classList.add(tile.resource);
-        theCircle.innerHTML = `<h2>${tile.chit}</h2>`
+        theCircle.innerHTML = `<h2 class="tile-chit-${mode}">${tile.chit}</h2>`
 
         if (tile.chit == 8 || tile.chit == 6) {
             theTile.classList.add("high-prob")
