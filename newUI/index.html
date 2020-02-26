@@ -7,51 +7,83 @@
 
     <style>
 
-        #board-area {
-            
-        }
+      body {
+          font-family: sans-serif;
+      }
 
-        #board {
-            height: 100%;
-            width: 100%;
-            margin: 2%;
-            background-color: red;
-        }
+      .title,.options {
+        width: 200px;
+        height: 100px;
+        color: #fff;
+      }
 
-        #title {
-            background-color: yellow;
-            margin: 2%;
-        }
+      .board {
+        width: 300px;
+        height: 300px;
+        color: #fff;
+      }
 
-        #options {
-            background-color: teal;
-            margin: 2%;
-        }
-    
+      .options {
+        background: red;
+      }
+
+      .title {
+        background: green;
+      }
+
+      .board {
+        background: blue;
+      }
+
     </style>
+
+    <script>
+
+      // This function is responsible for the arrangment of the boxes.
+      function resized(element) {
+        var element = $(element); // Element is the window.
+        var board = $('.board') // Grabs the board box.
+
+        if (element.width() < 768) { // If the window is "small", move the board box above the options box.
+          board.insertBefore($(".options"));
+        } else { // If the window is "big", have options below title.
+          $(".board-container").append(board);
+        }
+      }
+
+      // When the document is ready, call resized to have appropriate layout.
+      $(document).ready(() => {
+        resized(window);
+      });
+
+      // Anytime the window is resized, call the resized function with the new window as argument.
+      $(window).on("resize", e => {
+        resized(e.target);
+      })
+    </script>
 
 </head>
 <body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="box-container d-flex flex-column">
+          <div class="title d-flex justify-content-center align-items-center m-3 text-uppercase">
+            title
+          </div>
 
-    <div id="content-container" class="container-fluid">
-        <div class="row">
-            <div id="header" class="container-fluid col-4">
-                <div id="title" class="">CATAN GEN</div>
-                <div id="options" class="">Options</div>
-            </div>
-
-            <div id="board-area" class="container-fluid col-8">
-                <div id="board"></div>
-            </div>
-
-            <!-- <div id="options-area" class="row">
-                
-            </div> -->
+          <div class="options d-flex justify-content-center align-items-center m-3 text-uppercase">
+            options
+          </div>
         </div>
-
-
-
-
+      </div>
+      <div class="col-md-6 board-container">
+        <div class="board 6 d-flex justify-content-center align-items-center text-uppercase m-3">
+          board
+        </div>
+      </div>
     </div>
+  </div>
+
 </body>
 </html>
