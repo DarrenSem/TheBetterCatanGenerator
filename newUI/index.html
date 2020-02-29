@@ -14,13 +14,12 @@
 
       .title,.options {
         width: 94%;
-        height: 100px;
         color: #fff;
       }
 
       .board {
-        width: 94%;
-        height: 300px;
+        width: 100%;
+        /* height: 300px; */
         margin-right: 100px;
         color: #fff;
       }
@@ -31,6 +30,8 @@
 
       .title {
         background: green;
+        padding-top: 2%;
+        padding-bottom: 2%;
       }
 
       .board {
@@ -45,12 +46,36 @@
       function resized(element) {
         var element = $(element); // Element is the window.
         var board = $('.board') // Grabs the board box.
-        board.height(board.width()) // Sets the board height as the board's width.
+
+        // console.log(element.height())
+        // console.log(board.height())
+
+
+        // If the viewport height is greater than the width of the board, then we make
+        // the square using the board class' width.
+        //
+
+
+
+
+        // When the board's height equals the window's height, that is max board height.
+        board.height(board.width())
+
+         // Sets the board height as the board's width.
 
         if (element.width() < 768) { // If the window is "small", move the board box above the options box.
           board.insertBefore($(".options"));
+          // Mobile window resize edge case (for when options is pushed out.)
         } else { // If the window is "big", have options below title.
           $(".board-container").append(board);
+          // if (board.width() >= element.height()) {
+          //   console.log("bad thing happens")
+          //   board.width(element.height())
+          //   board.height(element.height())
+          // } else {
+          //   board.height(board.width())
+          //   console.log("Back to normal")
+          // }
         }
       }
 
@@ -69,7 +94,7 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-4 pr-0 pl-0">
         <div class="box-container d-flex flex-column">
           <div class="title d-flex justify-content-center align-items-center m-3">
             Catan Gen
@@ -80,8 +105,8 @@
           </div>
         </div>
       </div>
-      <div class="col-md-8 board-container">
-        <div class="board 6 d-flex justify-content-center align-items-center m-3">
+      <div class="col-md-8 board-container pr-0 pl-0">
+        <div class="board 6 d-flex justify-content-center align-items-center m-0">
           board
         </div>
       </div>
