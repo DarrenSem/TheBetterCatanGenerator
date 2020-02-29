@@ -1,5 +1,6 @@
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -12,14 +13,15 @@
       }
 
       .title,.options {
-        width: 200px;
+        width: 94%;
         height: 100px;
         color: #fff;
       }
 
       .board {
-        width: 300px;
+        width: 94%;
         height: 300px;
+        margin-right: 100px;
         color: #fff;
       }
 
@@ -43,6 +45,7 @@
       function resized(element) {
         var element = $(element); // Element is the window.
         var board = $('.board') // Grabs the board box.
+        board.height(board.width()) // Sets the board height as the board's width.
 
         if (element.width() < 768) { // If the window is "small", move the board box above the options box.
           board.insertBefore($(".options"));
@@ -66,19 +69,19 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-4">
         <div class="box-container d-flex flex-column">
-          <div class="title d-flex justify-content-center align-items-center m-3 text-uppercase">
-            title
+          <div class="title d-flex justify-content-center align-items-center m-3">
+            Catan Gen
           </div>
 
-          <div class="options d-flex justify-content-center align-items-center m-3 text-uppercase">
+          <div class="options d-flex justify-content-center align-items-center m-3">
             options
           </div>
         </div>
       </div>
-      <div class="col-md-6 board-container">
-        <div class="board 6 d-flex justify-content-center align-items-center text-uppercase m-3">
+      <div class="col-md-8 board-container">
+        <div class="board 6 d-flex justify-content-center align-items-center m-3">
           board
         </div>
       </div>
