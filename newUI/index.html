@@ -60,6 +60,8 @@
 
         // When the board's height equals the window's height, that is max board height.
         board.height(board.width())
+        found_max = false
+        max_height = 0
 
          // Sets the board height as the board's width.
 
@@ -68,14 +70,22 @@
           // Mobile window resize edge case (for when options is pushed out.)
         } else { // If the window is "big", have options below title.
           $(".board-container").append(board);
-          // if (board.width() >= element.height()) {
-          //   console.log("bad thing happens")
-          //   board.width(element.height())
-          //   board.height(element.height())
-          // } else {
-          //   board.height(board.width())
-          //   console.log("Back to normal")
-          // }
+          // If board getting too big, but haven't determined max_height yet.
+          if (board.width() >= element.height() && !found_max) {
+            console.log("finding max window height")
+            max_height = element.height() // The max height of board is the max height of viewport.
+            board.height(max_height) // Set the board height to this max_height value.
+            board.width(max_height) // Set the board width to this max_height value (to keep a square).
+            found_max = true
+          // If board getting too big, but already know the max_height.
+          } else if (board.width() >= element.height() && found_max) {
+            board.width(max_height)
+            board.height(max_height)
+          } else {
+            console.log("Back to normal")
+            board.width(element.height())
+            board.height(board.width())
+          }
         }
       }
 
@@ -87,6 +97,9 @@
       // Anytime the window is resized, call the resized function with the new window as argument.
       $(window).on("resize", e => {
         resized(e.target);
+        // if ($(".board").width() == element.height()) {
+        //   max_height = element.height()
+        // }
       })
     </script>
 
