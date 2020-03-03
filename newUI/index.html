@@ -12,33 +12,28 @@
           font-family: sans-serif;
       }
 
-      .title,.options {
+      #title,#options {
         width: 94%;
         color: #fff;
       }
 
-      .board {
+      #board {
         /* width: 100%; */
         height: 98vh;
         margin-right: 100px;
         color: #fff;
+        background: blue;
       }
 
-      .options {
+      #options {
         background: red;
       }
 
-      .title {
+      #title {
         background: green;
         padding-top: 2%;
         padding-bottom: 2%;
       }
-
-      .board {
-        background: blue;
-      }
-
-
 
 
     </style>
@@ -48,35 +43,37 @@
       // This function is responsible for the arrangment of the boxes.
       function resize(element) {
         var element = $(element); // Element is the window.
-        var board = $('.board') // Grabs the board box.
+        var board = $('#board') // Grabs the board box.
+
+        console.log(element[0].screen.orientation.type)
 
         var windowH = element[0].innerHeight
+        var windowW = element[0].innerWidth
         var boardConWidth = $('#board-container').width()
 
+        // if (element.width() < 768) {
+        if (windowH > windowW) { // If the window is "small", move the board box above the options box.
+          board.insertBefore($("#options"));
 
-        if (element.width() < 768) { // If the window is "small", move the board box above the options box.
-          board.insertBefore($(".options"));
-
-        } else { // If the window is "big", have options below title.
-
-        // Compare width of the board with the height of the window
-        // Draw box using the smaller one (board width vs. window height)
-        //  console.log(boardConWidth)
-        //  console.log(windowH)
-        if (boardConWidth < windowH) {
-          board.height(boardConWidth)
-          board.width(boardConWidth)
-          // console.log("smaller boardcon width")
-        } else if (windowH < boardConWidth) {
-          board.width(windowH)
-          board.height(windowH)
-          // console.log("smaller window height")
+        } else { // If the window is "big", have options below title
+          $("#board-container").append(board);
+          // Compare width of the board with the height of the window
+          // Draw box using the smaller one (board width vs. window height)
+          if (boardConWidth < windowH) {
+            board.height(boardConWidth)
+            board.width(boardConWidth)
+            // console.log("smaller boardcon width")
+          } else if (windowH < boardConWidth) {
+            board.width(windowH)
+            board.height(windowH)
+            // console.log("smaller window height")
+          }
         }
-
-          $(".board-container").append(board);
-        }
-        // board.height(board.width())
       }
+
+
+
+
 
       // When the document is ready, call resized to have appropriate layout.
       $(document).ready(() => {
@@ -90,6 +87,7 @@
         // console.log(windowHeight)
         resize(e.target);
       })
+
     </script>
 
 </head>
@@ -98,17 +96,17 @@
     <div class="row">
       <div class="col-4 pr-0 pl-0">
         <div class="box-container d-flex flex-column">
-          <div class="title d-flex justify-content-center align-items-center m-3">
+          <div id="title" class="d-flex justify-content-center align-items-center m-3">
             Catan Gen
           </div>
 
-          <div class="options d-flex justify-content-center align-items-center m-3">
+          <div id="options" class="d-flex justify-content-center align-items-center m-3">
             options
           </div>
         </div>
       </div>
       <div id="board-container" class="col-8 pr-0 pl-0 d-flex justify-content-center">
-        <div class="board d-flex justify-content-center align-items-center m-1">
+        <div id="board" class="d-flex justify-content-center align-items-center m-1">
           board
         </div>
       </div>
