@@ -18,8 +18,8 @@
       }
 
       .board {
-        width: 100%;
-        /* height: 300px; */
+        /* width: 100%; */
+        height: 98vh;
         margin-right: 100px;
         color: #fff;
       }
@@ -38,68 +38,57 @@
         background: blue;
       }
 
+
+
+
     </style>
 
     <script>
 
       // This function is responsible for the arrangment of the boxes.
-      function resized(element) {
+      function resize(element) {
         var element = $(element); // Element is the window.
         var board = $('.board') // Grabs the board box.
 
-        // console.log(element.height())
-        // console.log(board.height())
+        var windowH = element[0].innerHeight
+        var boardConWidth = $('#board-container').width()
 
-
-        // If the viewport height is greater than the width of the board, then we make
-        // the square using the board class' width.
-        //
-
-
-
-
-        // When the board's height equals the window's height, that is max board height.
-        board.height(board.width())
-        found_max = false
-        max_height = 0
-
-         // Sets the board height as the board's width.
 
         if (element.width() < 768) { // If the window is "small", move the board box above the options box.
           board.insertBefore($(".options"));
-          // Mobile window resize edge case (for when options is pushed out.)
+
         } else { // If the window is "big", have options below title.
-          $(".board-container").append(board);
-          // If board getting too big, but haven't determined max_height yet.
-          if (board.width() >= element.height() && !found_max) {
-            console.log("finding max window height")
-            max_height = element.height() // The max height of board is the max height of viewport.
-            board.height(max_height) // Set the board height to this max_height value.
-            board.width(max_height) // Set the board width to this max_height value (to keep a square).
-            found_max = true
-          // If board getting too big, but already know the max_height.
-          } else if (board.width() >= element.height() && found_max) {
-            board.width(max_height)
-            board.height(max_height)
-          } else {
-            console.log("Back to normal")
-            board.width(element.height())
-            board.height(board.width())
-          }
+
+        // Compare width of the board with the height of the window
+        // Draw box using the smaller one (board width vs. window height)
+        //  console.log(boardConWidth)
+        //  console.log(windowH)
+        if (boardConWidth < windowH) {
+          board.height(boardConWidth)
+          board.width(boardConWidth)
+          // console.log("smaller boardcon width")
+        } else if (windowH < boardConWidth) {
+          board.width(windowH)
+          board.height(windowH)
+          // console.log("smaller window height")
         }
+
+          $(".board-container").append(board);
+        }
+        // board.height(board.width())
       }
 
       // When the document is ready, call resized to have appropriate layout.
       $(document).ready(() => {
-        resized(window);
+        resize(window);
       });
 
       // Anytime the window is resized, call the resized function with the new window as argument.
       $(window).on("resize", e => {
-        resized(e.target);
-        // if ($(".board").width() == element.height()) {
-        //   max_height = element.height()
-        // }
+        // console.log(e.target.innerHeight)
+        // var windowHeight = e.target.innerHeight
+        // console.log(windowHeight)
+        resize(e.target);
       })
     </script>
 
@@ -107,7 +96,7 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-4 pr-0 pl-0">
+      <div class="col-4 pr-0 pl-0">
         <div class="box-container d-flex flex-column">
           <div class="title d-flex justify-content-center align-items-center m-3">
             Catan Gen
@@ -118,8 +107,8 @@
           </div>
         </div>
       </div>
-      <div class="col-md-8 board-container pr-0 pl-0">
-        <div class="board 6 d-flex justify-content-center align-items-center m-0">
+      <div id="board-container" class="col-8 pr-0 pl-0 d-flex justify-content-center">
+        <div class="board d-flex justify-content-center align-items-center m-1">
           board
         </div>
       </div>
