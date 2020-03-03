@@ -45,10 +45,13 @@
         var element = $(element); // Element is the window.
         var board = $('#board') // Grabs the board box.
 
-        console.log(element[0].screen.orientation.type)
+        //console.log(element[0].screen.orientation.type)
+        console.log(window.innerHeight)
 
-        var windowH = element[0].innerHeight
-        var windowW = element[0].innerWidth
+        // var windowH = element[0].innerHeight
+        // var windowW = element[0].innerWidth
+        var windowH = window.innerHeight
+        var windowW = window.innerWidth
         var boardConWidth = $('#board-container').width()
 
         // if (element.width() < 768) {
@@ -57,8 +60,8 @@
           // board.width(windowW)
           // board.height(windowW)
 
-          // board.height(boardConWidth)
-          // board.width(boardConWidth)
+          board.height(boardConWidth)
+          board.width(boardConWidth)
 
 
         } else { // If the window is "big", have options below title
