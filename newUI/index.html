@@ -54,6 +54,12 @@
         // if (element.width() < 768) {
         if (windowH > windowW) { // If the window is "small", move the board box above the options box.
           board.insertBefore($("#options"));
+          // board.width(windowW)
+          // board.height(windowW)
+
+          // board.height(boardConWidth)
+          // board.width(boardConWidth)
+
 
         } else { // If the window is "big", have options below title
           $("#board-container").append(board);
@@ -64,8 +70,8 @@
             board.width(boardConWidth)
             // console.log("smaller boardcon width")
           } else if (windowH < boardConWidth) {
-            board.width(windowH)
-            board.height(windowH)
+            board.width(windowH*.98) // Scale down window height a bit so it doesn't totally fill screen.
+            board.height(windowH*.98)
             // console.log("smaller window height")
           }
         }
