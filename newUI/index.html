@@ -35,66 +35,81 @@
         padding-bottom: 2%;
       }
 
+      .max-width {
+        width: 100%;
+      }
+
+      .landscape-title {
+
+      }
+
+      .landscape-options {
+
+      }
+
+      .portrait-title {
+        width: 98vw;
+      }
+
+      .portrait-options {
+
+      }
+
 
     </style>
 
     <script>
 
       // This function is responsible for the arrangment of the boxes.
-      function resize(element) {
-        var element = $(element); // Element is the window.
+      function resize() {
+
         var board = $('#board') // Grabs the board box.
-
-        //console.log(element[0].screen.orientation.type)
-        console.log(window.innerHeight)
-
-        // var windowH = element[0].innerHeight
-        // var windowW = element[0].innerWidth
         var windowH = window.innerHeight
         var windowW = window.innerWidth
         var boardConWidth = $('#board-container').width()
 
-        // if (element.width() < 768) {
-        if (windowH > windowW) { // If the window is "small", move the board box above the options box.
+        // Taller window! Board is between Title and Options.
+        if (windowH > windowW) {
           board.insertBefore($("#options"));
-          // board.width(windowW)
-          // board.height(windowW)
 
           board.height(boardConWidth)
           board.width(boardConWidth)
+          $("#board-container").removeClass('col-8')
+          $("#outer").removeClass('col-4')
+          $("#board-container").addClass('col-12')
+          $("#outer").addClass('col-12')
 
-
-        } else { // If the window is "big", have options below title
+        // Wider window! Board is to the right of Title and Options.
+        } else {
           $("#board-container").append(board);
+          $("#board-container").removeClass('col-12')
+          $("#outer").removeClass('col-12')
+          $("#board-container").addClass('col-8')
+          $("#outer").addClass('col-4')
+
+
           // Compare width of the board with the height of the window
           // Draw box using the smaller one (board width vs. window height)
-          if (boardConWidth < windowH) {
-            board.height(boardConWidth)
-            board.width(boardConWidth)
-            // console.log("smaller boardcon width")
-          } else if (windowH < boardConWidth) {
+          if (boardConWidth < windowH) { // If window is taller than it is wide...
+            board.height(boardConWidth*.98)
+            board.width(boardConWidth*.98)
+
+          } else if (windowH < boardConWidth) { // If window is wider than it is tall...
             board.width(windowH*.98) // Scale down window height a bit so it doesn't totally fill screen.
             board.height(windowH*.98)
-            // console.log("smaller window height")
           }
         }
       }
 
 
-
-
-
       // When the document is ready, call resized to have appropriate layout.
       $(document).ready(() => {
-        resize(window);
+        resize();
       });
 
       // Anytime the window is resized, call the resized function with the new window as argument.
-      $(window).on("resize", e => {
-        // console.log(e.target.innerHeight)
-        // var windowHeight = e.target.innerHeight
-        // console.log(windowHeight)
-        resize(e.target);
+      $(window).on("resize", () => {
+        resize();
       })
 
     </script>
@@ -103,8 +118,8 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-4 pr-0 pl-0">
-        <div class="box-container d-flex flex-column">
+      <div id="outer" class="col-4 pr-0 pl-0">
+        <div id="title-options-container" class="d-flex flex-column ml-1 mr-1 align-items-center">
           <div id="title" class="d-flex justify-content-center align-items-center m-3">
             Catan Gen
           </div>
