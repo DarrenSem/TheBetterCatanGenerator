@@ -25,6 +25,8 @@ if (mode == "normal") {
     size = 15;
 }
 
+let shuftype = document.getElementById('pick-shuffle').value;
+
 // This is matches each tile to its corresponding offset depending on the mode.
 // Used by the buildTiles function.
 let tileOffsetCSS = getOffsets(size, mode);
@@ -39,6 +41,13 @@ let shuffle = (arr) => {
         [arr[i], arr[j]] = [arr[j], arr[i]];
     }
     return arr;
+}
+
+
+let selectShuffle = () => {
+    shuftype = document.getElementById('pick-shuffle').value;
+    console.log(shuftype)
+    start()
 }
 
 
