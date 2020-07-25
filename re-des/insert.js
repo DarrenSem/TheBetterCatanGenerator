@@ -85,6 +85,10 @@ let passedAdjacencyTest = (tilesArr) => {
 
 
 
+let passedBalancedCheck = (tilesArr) => {
+    return true
+}
+
 // Checks over each tile in the board and checks if any two of its adjacent tiles are of the same resource.
 // If 2 or more are of the same resource, the board fails the resource check. Otherwise, it passes.
 let passedResourceCheck = (tilesArr) => {
@@ -100,6 +104,8 @@ let passedResourceCheck = (tilesArr) => {
     }
     return true
 }
+
+
 
 
 
@@ -166,11 +172,29 @@ let buildTiles = () => {
 // This function ties together the results of generateTileContent() and buildTiles().
 // In other words, it populates the HTML created by buildTiles() with the content
 // created by generateTileContent().
+
+
+let validateShuffle = (tiles) => {
+
+    let manditoryRules = (!passedAdjacencyTest(tiles) || !passedResourceCheck(tiles))
+
+    if (shuftype == "random") {
+        return manditoryRules
+    } else if (shuftype == "fair") {
+        return manditoryRules
+    }
+    else if (shuftype == "balanced") {
+        return manditoryRules || !passed
+    }
+
+}
+
+
 let fillTiles = () => {
     let tiles;
     do {
         tiles = generateTileContent();
-    } while (!passedAdjacencyTest(tiles) || !passedResourceCheck(tiles))
+    } while (validateShuffle(tiles))
 
     for (let [id, tile] of tiles.entries()) {
 
