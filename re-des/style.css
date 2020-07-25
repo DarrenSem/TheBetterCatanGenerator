@@ -143,6 +143,15 @@ html, body {
   font-size: 30px;
 }
 
+.selecttwo {
+  width:25%;
+  height:20%;
+  position: absolute;
+  left: 10%;
+  top:30%;
+  font-size: 30px;
+}
+
 }
 
   @media all and (orientation: portrait) {
