@@ -25,7 +25,8 @@ if (mode == "normal") {
     size = 15;
 }
 
-let shuftype = document.getElementById('pick-shuffle').value;
+//let shuftype = document.getElementById('pick-shuffle').value;
+let shuftype = 'random';
 
 // This is matches each tile to its corresponding offset depending on the mode.
 // Used by the buildTiles function.
