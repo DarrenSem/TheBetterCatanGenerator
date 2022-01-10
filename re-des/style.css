@@ -81,7 +81,7 @@ html, body {
   transform: translate(-50%, -50%);/*rotate(30deg); */
   overflow-x: hidden;
   background-size: 100% 100%;
-  background: url(./assets/background_new3.png);
+  background: url(./newAssets/background_new3.png);
 }
 
 #border-normal {
@@ -94,7 +94,7 @@ html, body {
   top: 50%;
   transform: translate(-50%, -50%);/*rotate(30deg); */
   overflow-x: hidden;
-  background: url(./assets/background_new3.png);
+  background: url(./newAssets/background_new3.png);
   background-size: 100% 100%;
   background-repeat: no-repeat
 }
@@ -109,7 +109,7 @@ html, body {
   top: 50%;
   transform: translate(-50%, -50%);/*rotate(30deg); */
   overflow-x: hidden;
-  /* background: url(./assets/background.png); */
+  /* background: url(./newAssets/background.png); */
   background-size: 100% 100%;
   background-repeat: no-repeat
 }
@@ -232,7 +232,7 @@ html, body {
       transform: translate(-50%, -50%);/*rotate(30deg); */
       overflow-x: hidden;
       /* background-size: 100% 100%; */
-      /* background: url(./assets/background.png); */
+      /* background: url(./newAssets/background.png); */
     }
 
     #test-outer::after {
@@ -249,7 +249,7 @@ html, body {
       top: 50%;
       transform: translate(-50%, -50%);/*rotate(30deg); */
       overflow-x: hidden;
-      background: url(./assets/background.png);
+      background: url(./newAssets/background.png);
       background-size: 100% 100%;
       background-repeat: no-repeat
     }
@@ -354,35 +354,35 @@ html, body {
 
   .sheep
   {
-    background: url(./assets/sheep_new.png);
+    background: url(./newAssets/sheep_new.png);
     background-size: auto 100%;
     background-repeat: no-repeat
   }
 
   .wheat
   {
-    background: url(./assets/wheat_new.png);
+    background: url(./newAssets/wheat_new.png);
     background-size: auto 100%;
     background-repeat: no-repeat
   }
 
   .wood
   {
-     background: url(./assets/wood_new.png);
+     background: url(./newAssets/wood_new.png);
     background-size: auto 100%;
     background-repeat: no-repeat
   }
 
   .brick
   {
-    background: url(./assets/brick_new.png);
+    background: url(./newAssets/brick_new.png);
     background-size: auto 100%;
     background-repeat: no-repeat
   }
 
   .ore
   {
-    background: url(./assets/ore_new.png);
+    background: url(./newAssets/ore_new.png);
     background-size: auto 100%;
     background-repeat: no-repeat
   }
@@ -390,14 +390,14 @@ html, body {
 
   .desert
   {
-    background: url(./assets/desert_new.png);
+    background: url(./newAssets/desert_new.png);
     background-size: auto 100%;
     background-repeat: no-repeat
   }
 
 .port
   {
-    background: url(./assets/wood-port.png);
+    background: url(./newAssets/wood-port.png);
     background-size: auto 100%;
     position: absolute;
     left: 50%;
