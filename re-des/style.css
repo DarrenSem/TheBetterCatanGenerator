@@ -249,7 +249,7 @@ html, body {
       top: 50%;
       transform: translate(-50%, -50%);/*rotate(30deg); */
       overflow-x: hidden;
-      background: url(./newAssets/background.png);
+      background: url(./newAssets/background_new3.png);
       background-size: 100% 100%;
       background-repeat: no-repeat
     }
