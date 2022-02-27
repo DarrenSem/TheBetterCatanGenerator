@@ -159,7 +159,7 @@ let generateTileContent = () => {
 // buildTiles() creates the HTML hexagon & chit elements for the board.
 let buildTiles = () => {
 
-    document.getElementById('board').innerHTML = `<div id="border-${mode}"></div>`
+    document.getElementById('board').innerHTML = `<div class="${mode}BorderCommon border-${mode}"></div>`
 
     for (let [id, css] of tileOffsetCSS.entries()) {
         document.getElementById('board').innerHTML +=

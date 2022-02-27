@@ -1,0 +1,203 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 100);
+    background: #FFFAED;
+}
+
+.newTitle {
+    text-align: center;
+    position: absolute;
+    top: 0;
+}
+
+.normalBorderCommon {
+    background: rgb(0, 153, 211);
+    position: absolute;
+    left: 50%;
+    overflow: hidden;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /*rotate(30deg); */
+    overflow-x: hidden;
+    background: url(./newAssets/background_new3.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat
+}
+
+.ExpandedBorderCommon {}
+
+.newShuffle {
+    position: absolute;
+    left: 40%;
+    top: 10%;
+    font-size: 30px;
+}
+
+.commonOpsbutton {
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 50px;
+    padding: 0;
+    margin: 0;
+    color: black;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h3 {
+    padding: 0;
+    margin: 0;
+    color: black;
+    position: absolute;
+    left: 50%;
+    top: 75%;
+    transform: translate(-50%, -50%);
+}
+
+.hex-normal {
+    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    height: 17.5%;
+    width: calc(17.5% * 1.732050808 / 2);
+    background: rgb(71, 70, 70);
+    /* POSITIONING */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-size: auto 100%;
+    background-repeat: no-repeat
+}
+
+.hex-expanded {
+    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    height: 15.5%;
+    width: calc(15.5% * 1.732050808 / 2);
+    background: rgb(71, 70, 70);
+    /* POSITIONING */
+    position: absolute;
+    transform-origin: 50% 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    background-size: auto 100%;
+    background-repeat: no-repeat
+}
+
+.circle-normal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: calc(40% * 1.73205 / 2);
+    width: 40%;
+    border: 1px solid black;
+    background: rgb(227, 197, 134);
+    border-radius: 50%;
+}
+
+.circle-expanded {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    height: calc(40% * 1.73205 / 2);
+    width: 40%;
+    border: 1px solid black;
+    background: rgb(227, 197, 134);
+    border-radius: 50%;
+}
+
+
+
+.high-prob h2 {
+    color: red;
+}
+
+.high-prob-normal h2 {
+    color: red;
+}
+
+
+
+/* mess with tile width calc or no repeat on the tiles */
+
+.sheep {
+    background: url(./newAssets/sheep_new.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat
+}
+
+.wheat {
+    background: url(./newAssets/wheat_new.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat
+}
+
+.wood {
+    background: url(./newAssets/wood_new.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat
+}
+
+.brick {
+    background: url(./newAssets/brick_new.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat
+}
+
+.ore {
+    background: url(./newAssets/ore_new.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat
+}
+
+
+.desert {
+    background: url(./newAssets/desert_new.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat
+}
+
+.port {
+    background: url(./newAssets/wood-port.png);
+    background-size: auto 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* height:vw; */
+    width: 6vw;
+    background-size: auto 100%;
+    background-repeat: no-repeat
+}
+
+
+.desert-chit {
+    background: transparent;
+    border: transparent;
+}
+
+
+h1 {
+    padding-bottom: 0;
+    font-size: 30px;
+    font-style: bold;
+    margin-bottom: 0;
+}
+
+h4 {
+    padding-top: 0;
+    margin-top: 0;
+}

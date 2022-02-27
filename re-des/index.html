@@ -6,35 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Catan Map Generator</title>
-    <meta name="description" content="The best free website to generate your catan map">
+    <meta name="description"
+        content="Generate Settlers of Catan maps. Works for both normal and expansion pack. Use our map generation options to make a board following your house rules.">
 
+    <link rel="stylesheet" type="text/css" href="./common.css">
     <link rel="stylesheet" type="text/css" href="./style.css">
+
 </head>
 
 <body>
-
-    <div id="options">
-        <form>
-            <button type="button" class="button" onclick="generateBoard()">Shuffle</button>
-            <select class="select" onchange="selectMode()" id="pick-mode">
-                <option value="normal" default>Normal</option>
-                <option value="expanded">Expansion</option>
-            </select>
-
-            <!-- <select class="selecttwo" onchange="selectShuffle()" id="pick-shuffle">
-                <option value="random" default>True Random</option>
-                <option value="fair">Fair</option>
-                <option value="balanced">Balanced</option>
-            </select> -->
-        </form>
-
-    </div>
-    <div id="title">
+    <header class="newTitle" id="title">
         <h1>The Better Catan Generator</h1>
         <h4><a href="https://bunge.io" target="_blank">Donate :)</a> | <a href="https://forms.gle/JuTFRjxeffMhPYss6"
                 target="_blank">Submit Feedback</a></h4>
-    </div>
-    <div id="board"></div>
+    </header>
+    <section class="commonNormalBoard board" id="board"></section>
+    <section id="options">
+        <form>
+            <button type="button" class="shuffle newShuffle" onclick="generateBoard()">Shuffle</button>
+            <select class="optsbutton commonOpsbutton" onchange="selectMode()" id="pick-mode">
+                <option value="normal" default>Normal</option>
+                <option value="expanded">Expansion</option>
+            </select>
+        </form>
+    </section>
+    <footer>
+    </footer>
+
+
 
 </body>
 <script type="text/javascript" src="./generateOffsets.js"></script>
