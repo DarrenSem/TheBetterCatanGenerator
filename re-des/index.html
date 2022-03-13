@@ -17,8 +17,28 @@
 <body>
     <header class="newTitle" id="title">
         <h1>The Better Catan Generator</h1>
-        <h4><a href="https://bunge.io" target="_blank">Donate :)</a> | <a href="https://forms.gle/JuTFRjxeffMhPYss6"
-                target="_blank">Submit Feedback</a></h4>
+        <div class="donateWrapper">
+            <form id="paypalform" action="https://www.paypal.com/donate" method="post" target="_top">
+                <input type="hidden" name="business" value="VGXQCGB7S2XFQ" />
+                <input type="hidden" name="no_recurring" value="0" />
+                <input type="hidden" name="item_name"
+                    value="It costs money to host my projects. If you enjoy the generator & want to chip in / buy me coffee, this is the way :)" />
+                <input type="hidden" name="currency_code" value="USD" />
+                <input class="donatebutton" type="image"
+                    src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit"
+                    title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                <imgalt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+
+            </form>
+        </div>
+        <div class="subHeaderWrapper">
+            <h4><a href="https://forms.gle/JuTFRjxeffMhPYss6" target="_blank">Submit Feedback</a></h4>
+        </div>
+
+        </h4>
+        </span>
+
+
     </header>
     <section class="commonNormalBoard board" id="board"></section>
     <section id="options">
