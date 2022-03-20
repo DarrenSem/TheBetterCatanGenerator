@@ -34,52 +34,40 @@
         <div class="subHeaderWrapper">
             <h4><a href="https://forms.gle/JuTFRjxeffMhPYss6" target="_blank">Submit Feedback</a></h4>
         </div>
-
-
-        <!-- <select class="optsbutton commonOpsbutton" onchange="selectMode()" id="pick-mode">
-                <option value="normal" default>Normal</option>
-                <option value="expanded">Expansion</option>
-            </select> -->
-
-
     </header>
+
     <section class="commonNormalBoard board" id="board"></section>
-    <section id="popwrap">
-        <section id="popmenu" class="menuToggle">
-            <h1>Generation Options</h1> <br>
-            <label>Map Type: </label>
 
-            <select class="" onchange="selectMode()" id="pick-mode">
-                <option value="normal" default>Normal</option>
-                <option value="expanded">Expansion</option>
-            </select>
-            <br>
-            <label>2 & 12 Can Touch</label><input type="checkbox"><br>
-            <label>6 & 8 Can Touch</label><input type="checkbox"><br>
-            <label>Same Numbers Can Touch</label><input type="checkbox"><br>
-            <button id="btnOps" type="button" class="menuclosebutton" onclick="toggleOptions()">Options</button>
+    <section id="popmenu" class="menuToggle">
+        <h1>Generation Options</h1><br>
 
+        <label>Map Type:</label>
+        <select class="" onchange="selectMode()" id="pick-mode">
+            <option value="normal" default>Normal</option>
+            <option value="expanded">Expansion</option>
+        </select><br>
 
-        </section>
+        <label class="mylabel">6 & 8 Can Touch</label>
+        <input id="adjacent_6_8_input" onchange="toggleSetting('6_8')" type="checkbox"><br>
+
+        <label class="mylabel">2 & 12 Can Touch</label>
+        <input id="adjacent_2_12_input" onchange="toggleSetting('2_12')" type="checkbox"><br>
+
+        <label class="mylabel">Same Numbers Can Touch</label>
+        <input id="adjacent_same_numbers_input" onchange="toggleSetting('same_number')" type="checkbox"><br>
+
+        <button type="button" class="menuclosebutton" onclick="toggleOptions()">Close Options</button>
+
     </section>
-
 
     <section id="options">
-        <!-- <form> -->
-
-
         <button id="btnOps" type="button" class="optsbutton commonOpsbutton" onclick="toggleOptions()">Options</button>
         <button type="button" class="shuffle commonShuffle" onclick="generateBoard()">Shuffle</button>
-        <!-- </form> -->
     </section>
-    <footer>
-    </footer>
-
-
-
+    <footer></footer>
 </body>
+
+
 <script type="text/javascript" src="./generateOffsets.js"></script>
 <script type="text/javascript" src="./adjacencyLists.js"></script>
 <script type="text/javascript" src="./insert.js"></script>
-
-</html>

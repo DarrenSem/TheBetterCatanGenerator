@@ -28,6 +28,19 @@ if (mode == "normal") {
 //let shuftype = document.getElementById('pick-shuffle').value;
 let shuftype = 'random';
 
+//Generation boolean default values
+
+let adjacent_6_8 = false
+let adjacent_2_12 = true
+let adjacent_same_numbers = true
+
+let setMenuValues = () => {
+    document.getElementById('adjacent_6_8_input').checked = adjacent_6_8
+    document.getElementById('adjacent_2_12_input').checked = adjacent_2_12
+    document.getElementById('adjacent_same_numbers_input').checked = adjacent_same_numbers
+
+}
+
 // This is matches each tile to its corresponding offset depending on the mode.
 // Used by the buildTiles function.
 let tileOffsetCSS = getOffsets(size, mode);
@@ -66,6 +79,21 @@ let selectMode = () => {
     start()
 }
 
+let toggleSetting = (setting) => {
+
+    switch (setting) {
+        case "6_8":
+            adjacent_6_8 = document.getElementById('adjacent_6_8_input').checked
+            break;
+        case "2_12":
+            adjacent_2_12 = document.getElementById('adjacent_2_12_input').checked
+            break;
+        case "same_number":
+            adjacent_same_numbers = document.getElementById('adjacent_same_numbers_input').checked
+            break;
+
+    }
+}
 
 
 // Checks over each number in the randomized number array.
@@ -238,13 +266,18 @@ let toggleOptions = () => {
     let optionsMenu = document.getElementById("popmenu").classList
     let optionsButton = document.getElementById("btnOps")
 
+
     if (optionsMenu.contains("menuToggle")) {
+        //THIS OPENS THE MENU
         optionsMenu.remove("menuToggle")
         optionsButton.innerHTML = "Close Options"
+        setMenuValues()
 
     } else {
         optionsMenu.add("menuToggle")
         optionsButton.innerHTML = "Options"
+        //TODO: only regen if the settings changes
+        generateBoard()
     }
 }
 
