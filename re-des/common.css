@@ -263,6 +263,7 @@ h4 {
 .mySelect {
     height: 32px;
     width: 125px;
+    text-align: center;
 }
 
 .checkmark {
