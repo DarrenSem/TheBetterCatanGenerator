@@ -57,9 +57,18 @@ html, body {
 }
 
 .menuclosebutton {
-    position: relative;
-    margin-top: 60px;
-    width: 60%;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    height: 40px;
+    width: 80%;
+    right: 50%;
+    transform: translate(-50%, 0%);
+    /* position: relative; */
+    /* float: left; */
+    /* margin-top: 60px; */
+
+
     font-size: 20px;
 }
 
@@ -233,6 +242,43 @@ h4 {
     visibility: hidden;
 }
 
+.settingswrap {
+    /* background: purple; */
+    text-align: right;
+    position: relative;
+    width: 70%;
+    left: 15%;
+    height: 250px;
+}
+
+.mylabel {
+    float: left;
+
+}
+
+.menu-row {
+    height: 35px;
+}
+
+.mySelect {
+    height: 28px;
+}
+
+.checkmark {
+    height: 25px;
+    position: absolute;
+    padding: 100px;
+}
+
+input[type="checkbox"] {
+
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 22px;
+    height: 22px;
+    border: 3px solid currentColor;
+}
 
 
 #popmenu {

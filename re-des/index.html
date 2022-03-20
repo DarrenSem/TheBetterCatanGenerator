@@ -40,23 +40,30 @@
 
     <section id="popmenu" class="menuToggle">
         <h1>Generation Options</h1><br>
+        <div class="settingswrap">
 
-        <label>Map Type:</label>
-        <select class="" onchange="selectMode()" id="pick-mode">
-            <option value="normal" default>Normal</option>
-            <option value="expanded">Expansion</option>
-        </select><br>
-
-        <label class="mylabel">6 & 8 Can Touch</label>
-        <input id="adjacent_6_8_input" onchange="toggleSetting('6_8')" type="checkbox"><br>
-
-        <label class="mylabel">2 & 12 Can Touch</label>
-        <input id="adjacent_2_12_input" onchange="toggleSetting('2_12')" type="checkbox"><br>
-
-        <label class="mylabel">Same Numbers Can Touch</label>
-        <input id="adjacent_same_numbers_input" onchange="toggleSetting('same_number')" type="checkbox"><br>
-
-        <button type="button" class="menuclosebutton" onclick="toggleOptions()">Close Options</button>
+            <div class="menu-row">
+                <label class="mylabel">Map Type:</label>
+                <select class="mySelect" onchange="selectMode()" id="pick-mode">
+                    <option value="normal" default>Normal</option>
+                    <option value="expanded">Expansion</option>
+                </select><br>
+            </div>
+            <div class="menu-row">
+                <label class="mylabel">6 & 8 Can Touch</label>
+                <input id="adjacent_6_8_input" onchange="toggleSetting('6_8')" type="checkbox">
+                <span class="checkmark"></span><br>
+            </div>
+            <div class="menu-row">
+                <label class="mylabel">2 & 12 Can Touch</label>
+                <input id="adjacent_2_12_input" onchange="toggleSetting('2_12')" type="checkbox"><br>
+            </div>
+            <div class="menu-row">
+                <label class="mylabel">Same Numbers Can Touch</label>
+                <input id="adjacent_same_numbers_input" onchange="toggleSetting('same_number')" type="checkbox"><br>
+            </div>
+            <button type="button" class="menuclosebutton" onclick="toggleOptions()">Close Options</button>
+        </div>
 
     </section>
 
