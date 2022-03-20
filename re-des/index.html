@@ -35,20 +35,43 @@
             <h4><a href="https://forms.gle/JuTFRjxeffMhPYss6" target="_blank">Submit Feedback</a></h4>
         </div>
 
-        </h4>
-        </span>
+
+        <!-- <select class="optsbutton commonOpsbutton" onchange="selectMode()" id="pick-mode">
+                <option value="normal" default>Normal</option>
+                <option value="expanded">Expansion</option>
+            </select> -->
 
 
     </header>
     <section class="commonNormalBoard board" id="board"></section>
-    <section id="options">
-        <form>
-            <button type="button" class="shuffle newShuffle" onclick="generateBoard()">Shuffle</button>
-            <select class="optsbutton commonOpsbutton" onchange="selectMode()" id="pick-mode">
+    <section id="popwrap">
+        <section id="popmenu" class="menuToggle">
+            <h1>Generation Options</h1>
+            <br>
+
+            <label>Map Type: </label>
+
+            <select class="" onchange="selectMode()" id="pick-mode">
                 <option value="normal" default>Normal</option>
                 <option value="expanded">Expansion</option>
             </select>
-        </form>
+            <br>
+            <label>Allow side-by-side 2 & 11</label><input type="checkbox"><br>
+            <label>Allow side-by-side 8 & 6</label><input type="checkbox"><br>
+            <label>Allow side-by-side same numbers</label><input type="checkbox"><br>
+
+
+        </section>
+    </section>
+
+
+    <section id="options">
+        <!-- <form> -->
+
+
+        <button id="btnOps" type="button" class="optsbutton commonOpsbutton" onclick="toggleOptions()">Options</button>
+        <button type="button" class="shuffle commonShuffle" onclick="generateBoard()">Shuffle</button>
+        <!-- </form> -->
     </section>
     <footer>
     </footer>

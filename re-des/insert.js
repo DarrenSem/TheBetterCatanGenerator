@@ -233,6 +233,21 @@ let generateBoard = () => {
     fillTiles();
 }
 
+let toggleOptions = () => {
+
+    let optionsMenu = document.getElementById("popmenu").classList
+    let optionsButton = document.getElementById("btnOps")
+
+    if (optionsMenu.contains("menuToggle")) {
+        optionsMenu.remove("menuToggle")
+        optionsButton.innerHTML = "Close Options"
+
+    } else {
+        optionsMenu.add("menuToggle")
+        optionsButton.innerHTML = "Options"
+    }
+}
+
 // A function called initially and also when mode is switched to start board generation.
 let start = () => {
     // These functions are called initially upon loading the page for the first time.

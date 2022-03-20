@@ -69,12 +69,11 @@
     } */
 
     .shuffle {
-        width: 50%;
+        width: 25%;
         height: 20%;
     }
 
     .optsbutton {
-        width: 25%;
         height: 20%;
 
     }
@@ -122,13 +121,12 @@
     }
 
     .shuffle {
-        width: 50%;
+        width: 25%;
         height: 40%;
 
     }
 
     .optsbutton {
-        width: 25%;
         height: 40%;
 
     }

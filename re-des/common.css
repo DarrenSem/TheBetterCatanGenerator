@@ -41,18 +41,19 @@ html, body {
 
 .ExpandedBorderCommon {}
 
-.newShuffle {
+.commonShuffle {
     position: absolute;
-    left: 40%;
+    left: 70%;
     top: 10%;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .commonOpsbutton {
     position: absolute;
-    left: 10%;
+    left: 5%;
     top: 10%;
-    font-size: 30px;
+    width: 60%;
+    font-size: 20px;
 }
 
 h2 {
@@ -217,3 +218,35 @@ h4 {
 .donatebutton {
     position: absolute;
 }
+
+.menuToggle {
+    visibility: hidden;
+}
+
+#popmenu {
+    width: 350px;
+    height: 350px;
+    text-align: center;
+    background: #E3C586;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 15.5%;
+    text-align: center;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 15px 0 black;
+    z-index: 1;
+    border-radius: 10px;
+
+    /* animation: popmenu 0.5s; */
+}
+
+/* @keyframes popmenu {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+} */
