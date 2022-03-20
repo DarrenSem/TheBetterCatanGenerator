@@ -261,7 +261,8 @@ h4 {
 }
 
 .mySelect {
-    height: 28px;
+    height: 32px;
+    width: 125px;
 }
 
 .checkmark {
