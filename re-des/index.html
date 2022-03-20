@@ -46,9 +46,7 @@
     <section class="commonNormalBoard board" id="board"></section>
     <section id="popwrap">
         <section id="popmenu" class="menuToggle">
-            <h1>Generation Options</h1>
-            <br>
-
+            <h1>Generation Options</h1> <br>
             <label>Map Type: </label>
 
             <select class="" onchange="selectMode()" id="pick-mode">
@@ -56,9 +54,10 @@
                 <option value="expanded">Expansion</option>
             </select>
             <br>
-            <label>Allow side-by-side 2 & 11</label><input type="checkbox"><br>
-            <label>Allow side-by-side 8 & 6</label><input type="checkbox"><br>
-            <label>Allow side-by-side same numbers</label><input type="checkbox"><br>
+            <label>2 & 12 Can Touch</label><input type="checkbox"><br>
+            <label>6 & 8 Can Touch</label><input type="checkbox"><br>
+            <label>Same Numbers Can Touch</label><input type="checkbox"><br>
+            <button id="btnOps" type="button" class="menuclosebutton" onclick="toggleOptions()">Options</button>
 
 
         </section>
