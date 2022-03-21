@@ -214,10 +214,11 @@ let shuffleIsValid = (tiles) => {
 
     let validShuffle = true
 
-    if (!adjacent_same_resource) {
-        validShuffle &&= passedResourceCheck(tiles, 1)
-    } else {
+    //the expansion pack can not use this setting
+    if (adjacent_same_resource || mode != "normal") {
         validShuffle &&= passedResourceCheck(tiles, 2)
+    } else {
+        validShuffle &&= passedResourceCheck(tiles, 1)
     }
 
 
