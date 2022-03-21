@@ -41,6 +41,7 @@ let setMenuValues = () => {
     document.getElementById('adjacent_6_8_input').checked = adjacent_6_8
     document.getElementById('adjacent_2_12_input').checked = adjacent_2_12
     document.getElementById('adjacent_same_numbers_input').checked = adjacent_same_numbers
+    document.getElementById('adjacent_same_resource_input').checked = adjacent_same_resource
 
 }
 
