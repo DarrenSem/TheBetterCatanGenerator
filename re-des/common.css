@@ -242,6 +242,13 @@ h4 {
     visibility: hidden;
 }
 
+.settingViewToggle {
+    visibility: hidden;
+    ;
+}
+
+
+
 .settingswrap {
     /* background: purple; */
     text-align: right;

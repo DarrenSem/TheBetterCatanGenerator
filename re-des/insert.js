@@ -76,9 +76,11 @@ let selectMode = () => {
     mode = document.getElementById('pick-mode').value;
     if (mode == "normal") {
         size = 17.2;
+
     } else {
         size = 15;
     }
+    flipSameResourceSetting()
     tileOffsetCSS = getOffsets(size, mode);
     start()
 }
@@ -305,16 +307,39 @@ let generateBoard = () => {
     fillTiles();
 }
 
+
+let flipSameResourceSetting = () => {
+    let sameResource = document.getElementById("sameResourceSetting").classList
+    if (mode == "normal") {
+        sameResource.remove("settingViewToggle")
+    } else {
+        sameResource.add("settingViewToggle")
+    }
+}
+
 let toggleOptions = () => {
 
     let optionsMenu = document.getElementById("popmenu").classList
+    // let sameResouceToggle = document.getElementById("popmenu").classList
     let optionsButton = document.getElementById("btnOps")
+
+
+
+    flipSameResourceSetting()
+
+
+
+
 
 
     if (optionsMenu.contains("menuToggle")) {
         //THIS OPENS THE MENU
         optionsMenu.remove("menuToggle")
         optionsButton.innerHTML = "Close Options"
+
+
+
+
         setMenuValues()
 
     } else {
