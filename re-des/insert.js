@@ -37,6 +37,9 @@ let adjacent_same_numbers = true
 let adjacent_same_resource = true
 
 
+let settingAdjusted = false
+
+
 let setMenuValues = () => {
     document.getElementById('adjacent_6_8_input').checked = adjacent_6_8
     document.getElementById('adjacent_2_12_input').checked = adjacent_2_12
@@ -86,6 +89,8 @@ let selectMode = () => {
 }
 
 let toggleSetting = (setting) => {
+
+    settingAdjusted = true
 
     switch (setting) {
         case "6_8":
@@ -345,8 +350,12 @@ let toggleOptions = () => {
     } else {
         optionsMenu.add("menuToggle")
         optionsButton.innerHTML = "Options"
-        //TODO: only regen if the settings changes
-        generateBoard()
+
+        if (settingAdjusted) {
+            settingAdjusted = false
+            generateBoard()
+        }
+
     }
 }
 
