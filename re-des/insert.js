@@ -303,7 +303,7 @@ let fillTiles = () => {
             theCircle.classList.add("desert-chit")
         } else {
             theCircle.classList.remove("desert-chit")
-            theCircle.innerHTML += `<h3 class=style='color:${color}'">${tile.probability}</h3>`
+            theCircle.innerHTML += `<h3 style='color:${color}'">${tile.probability}</>`
         }
     }
 }
