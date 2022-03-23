@@ -39,21 +39,41 @@ html, body {
     background-repeat: no-repeat
 }
 
-.ExpandedBorderCommon {}
+/* .ExpandedBorderCommon {} */
 
-.newShuffle {
+.commonShuffle {
     position: absolute;
-    left: 40%;
+    left: 70%;
     top: 10%;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .commonOpsbutton {
     position: absolute;
-    left: 10%;
+    left: 5%;
     top: 10%;
-    font-size: 30px;
+    width: 60%;
+    font-size: 20px;
 }
+
+.menuclosebutton {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    height: 40px;
+    width: 80%;
+    right: 50%;
+    transform: translate(-50%, 0%);
+    /* position: relative; */
+    /* float: left; */
+    /* margin-top: 60px; */
+
+
+    font-size: 20px;
+}
+
+
+
 
 h2 {
     font-size: 50px;
@@ -217,3 +237,83 @@ h4 {
 .donatebutton {
     position: absolute;
 }
+
+.menuToggle {
+    visibility: hidden;
+}
+
+.settingViewToggle {
+    visibility: hidden;
+    ;
+}
+
+
+
+.settingswrap {
+    /* background: purple; */
+    text-align: right;
+    position: relative;
+    width: 70%;
+    left: 15%;
+    height: 250px;
+}
+
+.mylabel {
+    float: left;
+
+}
+
+.menu-row {
+    height: 35px;
+}
+
+.mySelect {
+    height: 32px;
+
+    text-align: center;
+}
+
+.checkmark {
+    height: 25px;
+    position: absolute;
+    padding: 100px;
+}
+
+input[type="checkbox"] {
+
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 22px;
+    height: 22px;
+    border: 3px solid currentColor;
+}
+
+
+#popmenu {
+    width: 350px;
+    height: 350px;
+    text-align: center;
+    background: #E3C586;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 15.5%;
+    text-align: center;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 15px 0 black;
+    z-index: 1;
+    border-radius: 10px;
+
+    /* animation: popmenu 0.5s; */
+}
+
+/* @keyframes popmenu {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+} */

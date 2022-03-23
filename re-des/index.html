@@ -34,30 +34,50 @@
         <div class="subHeaderWrapper">
             <h4><a href="https://forms.gle/JuTFRjxeffMhPYss6" target="_blank">Submit Feedback</a></h4>
         </div>
-
-        </h4>
-        </span>
-
-
     </header>
+
     <section class="commonNormalBoard board" id="board"></section>
-    <section id="options">
-        <form>
-            <button type="button" class="shuffle newShuffle" onclick="generateBoard()">Shuffle</button>
-            <select class="optsbutton commonOpsbutton" onchange="selectMode()" id="pick-mode">
-                <option value="normal" default>Normal</option>
-                <option value="expanded">Expansion</option>
-            </select>
-        </form>
+
+    <section id="popmenu" class="menuToggle">
+        <h1>Generation Options</h1><br>
+        <div class="settingswrap">
+
+            <div class="menu-row">
+                <label class="mylabel">Map Type:</label>
+                <select class="mySelect" onchange="selectMode()" id="pick-mode">
+                    <option value="normal" default>Normal</option>
+                    <option value="expanded">Expansion</option>
+                </select><br>
+            </div>
+            <div class="menu-row">
+                <label class="mylabel">6 & 8 Can Touch</label>
+                <input id="adjacent_6_8_input" onchange="toggleSetting('6_8')" type="checkbox"><br>
+            </div>
+            <div class="menu-row">
+                <label class="mylabel">2 & 12 Can Touch</label>
+                <input id="adjacent_2_12_input" onchange="toggleSetting('2_12')" type="checkbox"><br>
+            </div>
+            <div class="menu-row">
+                <label class="mylabel">Same Numbers Can Touch</label>
+                <input id="adjacent_same_numbers_input" onchange="toggleSetting('same_number')" type="checkbox"><br>
+            </div>
+            <div id="sameResourceSetting" class="menu-row">
+                <label class="mylabel">Same Resource Can Touch</label>
+                <input id="adjacent_same_resource_input" onchange="toggleSetting('same_resource')" type="checkbox"><br>
+            </div>
+            <button type="button" class="menuclosebutton" onclick="toggleOptions()">Close Options</button>
+        </div>
+
     </section>
-    <footer>
-    </footer>
 
-
-
+    <section id="options">
+        <button id="btnOps" type="button" class="optsbutton commonOpsbutton" onclick="toggleOptions()">Options</button>
+        <button type="button" class="shuffle commonShuffle" onclick="generateBoard()">Shuffle</button>
+    </section>
+    <footer></footer>
 </body>
+
+
 <script type="text/javascript" src="./generateOffsets.js"></script>
 <script type="text/javascript" src="./adjacencyLists.js"></script>
 <script type="text/javascript" src="./insert.js"></script>
-
-</html>

@@ -1,5 +1,6 @@
 state = {
     numArray: [2, 3, 3, 4, 4, 5, 5, 6, 6, 8, 8, 9, 9, 10, 10, 11, 11, 12],
+    regNums: [, 3, 4, 5, 9, 10, 11],
     expandednumArray: [2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 8, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12],
     resourceArray: ["ore", "ore", "ore", "brick", "brick", "brick", "sheep"
         , "sheep", "sheep", "sheep", "wood", "wood", "wood", "wood",
@@ -27,6 +28,25 @@ if (mode == "normal") {
 
 //let shuftype = document.getElementById('pick-shuffle').value;
 let shuftype = 'random';
+
+//Generation boolean default values
+
+let adjacent_6_8 = false
+let adjacent_2_12 = true
+let adjacent_same_numbers = true
+let adjacent_same_resource = true
+
+
+let settingAdjusted = false
+
+
+let setMenuValues = () => {
+    document.getElementById('adjacent_6_8_input').checked = adjacent_6_8
+    document.getElementById('adjacent_2_12_input').checked = adjacent_2_12
+    document.getElementById('adjacent_same_numbers_input').checked = adjacent_same_numbers
+    document.getElementById('adjacent_same_resource_input').checked = adjacent_same_resource
+
+}
 
 // This is matches each tile to its corresponding offset depending on the mode.
 // Used by the buildTiles function.
@@ -59,13 +79,35 @@ let selectMode = () => {
     mode = document.getElementById('pick-mode').value;
     if (mode == "normal") {
         size = 17.2;
+
     } else {
         size = 15;
     }
+    flipSameResourceSetting()
     tileOffsetCSS = getOffsets(size, mode);
     start()
 }
 
+let toggleSetting = (setting) => {
+
+    settingAdjusted = true
+
+    switch (setting) {
+        case "6_8":
+            adjacent_6_8 = document.getElementById('adjacent_6_8_input').checked
+            break;
+        case "2_12":
+            adjacent_2_12 = document.getElementById('adjacent_2_12_input').checked
+            break;
+        case "same_number":
+            adjacent_same_numbers = document.getElementById('adjacent_same_numbers_input').checked
+            break;
+        case "same_resource":
+            adjacent_same_resource = document.getElementById('adjacent_same_resource_input').checked
+            break;
+
+    }
+}
 
 
 // Checks over each number in the randomized number array.
@@ -73,11 +115,11 @@ let selectMode = () => {
 // If there is a 6 or 8 in its adjacencies, return true, AKA there are adjacencies present.
 // If it goes through whole array and does not encounter adjacent 6 and 8s, return false,
 // AKA there are no adjacencies present.
-let passedAdjacencyTest = (tilesArr) => {
+let passedAdjacencyTest = (tilesArr, num1, num2) => {
     for (let [boardLocation, tile] of tilesArr.entries()) {
-        if (tile.chit == 6 || tile.chit == 8) {
+        if (tile.chit == num1 || tile.chit == num2) {
             for (adj of adjacencyList[boardLocation]) {
-                if (tilesArr[adj].chit == 6 || tilesArr[adj].chit == 8) return false
+                if (tilesArr[adj].chit == num1 || tilesArr[adj].chit == num2) return false
             }
         }
     }
@@ -92,7 +134,7 @@ let passedBalancedCheck = (tilesArr) => {
 
 // Checks over each tile in the board and checks if any two of its adjacent tiles are of the same resource.
 // If 2 or more are of the same resource, the board fails the resource check. Otherwise, it passes.
-let passedResourceCheck = (tilesArr) => {
+let passedResourceCheck = (tilesArr, limit) => {
     for (let [boardLocation, tile] of tilesArr.entries()) {
         let resource = tile.resource
         let count = 1;
@@ -101,7 +143,7 @@ let passedResourceCheck = (tilesArr) => {
                 count++
             }
         }
-        if (count > 2) return false
+        if (count > limit) return false
     }
     return true
 }
@@ -175,18 +217,55 @@ let buildTiles = () => {
 // created by generateTileContent().
 
 
-let validateShuffle = (tiles) => {
+let shuffleIsValid = (tiles) => {
 
-    let manditoryRules = (!passedAdjacencyTest(tiles) || !passedResourceCheck(tiles))
+    let validShuffle = true
 
-    if (shuftype == "random") {
-        return manditoryRules
-    } else if (shuftype == "fair") {
-        return manditoryRules
+    //the expansion pack can not use this setting
+    if (adjacent_same_resource || mode != "normal") {
+        validShuffle &&= passedResourceCheck(tiles, 2)
+    } else {
+        validShuffle &&= passedResourceCheck(tiles, 1)
     }
-    else if (shuftype == "balanced") {
-        return manditoryRules || !passed
+
+
+
+
+    console.log(adjacent_6_8)
+
+    if (!adjacent_6_8) {
+        validShuffle &&= passedAdjacencyTest(tiles, 6, 8)
+        if (!validShuffle) return false
     }
+
+    if (!adjacent_2_12) {
+        validShuffle &&= passedAdjacencyTest(tiles, 2, 12)
+    }
+
+    if (!adjacent_same_numbers) {
+        for (let num of state.regNums) {
+            validShuffle &&= passedAdjacencyTest(tiles, num, num)
+            if (!validShuffle) return false
+        }
+        //validShuffle &&= passedAdjacencyTest(tiles, 2, 12)
+    }
+
+
+
+    //let manditoryRules = !passedAdjacencyTest(tiles, 6, 8) || !passedResourceCheck(tiles))
+    return validShuffle
+
+
+
+
+    // if (shuftype == "random") {
+    //     return manditoryRules
+    // } else if (shuftype == "fair") {
+    //     return manditoryRules
+    // }
+    // else if (shuftype == "balanced") {
+    //     return manditoryRules || !passed
+    // }
 
 }
 
@@ -195,7 +274,7 @@ let fillTiles = () => {
     let tiles;
     do {
         tiles = generateTileContent();
-    } while (validateShuffle(tiles))
+    } while (!shuffleIsValid(tiles))
 
     for (let [id, tile] of tiles.entries()) {
 
@@ -231,6 +310,53 @@ let fillTiles = () => {
 let generateBoard = () => {
     event.preventDefault();
     fillTiles();
+}
+
+
+let flipSameResourceSetting = () => {
+    let sameResource = document.getElementById("sameResourceSetting").classList
+    if (mode == "normal") {
+        sameResource.remove("settingViewToggle")
+    } else {
+        sameResource.add("settingViewToggle")
+    }
+}
+
+let toggleOptions = () => {
+
+    let optionsMenu = document.getElementById("popmenu").classList
+    // let sameResouceToggle = document.getElementById("popmenu").classList
+    let optionsButton = document.getElementById("btnOps")
+
+
+
+    flipSameResourceSetting()
+
+
+
+
+
+
+    if (optionsMenu.contains("menuToggle")) {
+        //THIS OPENS THE MENU
+        optionsMenu.remove("menuToggle")
+        optionsButton.innerHTML = "Close Options"
+
+
+
+
+        setMenuValues()
+
+    } else {
+        optionsMenu.add("menuToggle")
+        optionsButton.innerHTML = "Options"
+
+        if (settingAdjusted) {
+            settingAdjusted = false
+            generateBoard()
+        }
+
+    }
 }
 
 // A function called initially and also when mode is switched to start board generation.
