@@ -290,17 +290,20 @@ let fillTiles = () => {
         theTile.classList.add(tile.resource);
         theCircle.innerHTML = `<h2 class="tile-chit-${mode}">${tile.chit}</h2>`
 
+        let color = 'red'
+
         if (tile.chit == 8 || tile.chit == 6) {
             theTile.classList.add("high-prob")
         } else {
             theTile.classList.remove("high-prob")
+            color = 'black'
         }
 
         if (tile.resource == "desert") {
             theCircle.classList.add("desert-chit")
         } else {
             theCircle.classList.remove("desert-chit")
-            theCircle.innerHTML += `<h3>${tile.probability}</h3>`
+            theCircle.innerHTML += `<h3 class=style='color:${color}'">${tile.probability}</h3>`
         }
     }
 }
