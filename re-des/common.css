@@ -72,33 +72,53 @@ html, body {
     font-size: 20px;
 }
 
+h1 {
+    padding-bottom: 0;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
 
-
+.links {
+    padding-bottom: 0;
+    font-size: 20px;
+    font-style: bold;
+    margin-bottom: 0;
+}
 
 h2 {
-    font-size: 50px;
+    padding-bottom: 0;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+
+.chit-number-base {
+    display: block;
+    font-weight: bold;
+    font-size: 1.18em;
     padding: 0;
-    margin: 0;
-    color: black;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
 }
 
-h3 {
+.prob-dots-base {
     padding: 0;
     margin: 0;
-    color: black;
+    letter-spacing: -1px;
+    padding-right: 1px;
+    /* letter-spacing: -2px;
+    padding-right: 2px; */
     position: absolute;
     left: 50%;
-    top: 75%;
+    top: 72%;
     transform: translate(-50%, -50%);
 }
 
 .hex-normal {
-    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     height: 17.5%;
     width: calc(17.5% * 1.732050808 / 2);
     background: rgb(71, 70, 70);
@@ -111,9 +131,12 @@ h3 {
     background-repeat: no-repeat
 }
 
-.hex-expanded {
+.hex-base {
     -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hex-expanded {
     height: 15.5%;
     width: calc(15.5% * 1.732050808 / 2);
     background: rgb(71, 70, 70);
@@ -127,7 +150,7 @@ h3 {
     background-repeat: no-repeat
 }
 
-.circle-normal {
+.circle-base {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -139,25 +162,19 @@ h3 {
     border-radius: 50%;
 }
 
+.circle-normal {}
+
 .circle-expanded {
-    position: absolute;
-    left: 50%;
-    top: 50%;
     transform: translate(-50%, -50%) rotate(-90deg);
-    height: calc(40% * 1.73205 / 2);
-    width: 40%;
-    border: 1px solid black;
-    background: rgb(227, 197, 134);
-    border-radius: 50%;
 }
 
 
 
-.high-prob h2 {
+.high-prob {
     color: red;
 }
 
-.high-prob-normal h2 {
+.high-prob-normal {
     color: red;
 }
 
@@ -222,17 +239,7 @@ h3 {
 }
 
 
-h1 {
-    padding-bottom: 0;
-    font-size: 30px;
-    font-style: bold;
-    margin-bottom: 0;
-}
 
-h4 {
-    padding-top: 0;
-    margin-top: 0;
-}
 
 .donatebutton {
     position: absolute;
@@ -253,8 +260,8 @@ h4 {
     /* background: purple; */
     text-align: right;
     position: relative;
-    width: 70%;
-    left: 15%;
+    width: 80%;
+    left: 10%;
     height: 250px;
 }
 

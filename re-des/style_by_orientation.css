@@ -22,13 +22,14 @@
         left: 0;
     }
 
-    h2 {
-        font-size: 5vh;
+    .font-size-wrap {
+        font-size: 4.5vh;
     }
 
-    h3 {
-        font-size: 2.5vh;
+    .small-font-size-wrap {
+        font-size: 3vh;
     }
+
 
 
 
@@ -108,14 +109,13 @@
         width: 100vw;
     }
 
-    h2 {
-        font-size: 5vw;
+    .font-size-wrap {
+        font-size: 4.5vw;
     }
 
-    h3 {
-        font-size: 2.5vw;
+    .small-font-size-wrap {
+        font-size: 3vw;
     }
-
 
     .border-normal {
         width: 99vw;
