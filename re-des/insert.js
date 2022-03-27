@@ -205,8 +205,8 @@ let buildTiles = () => {
 
     for (let [id, css] of tileOffsetCSS.entries()) {
         document.getElementById('board').innerHTML +=
-            `<div class="hex-${mode}" style="${css}" id="tile-${id}")>
-                  <div class="circle-${mode}" id="circle-${id}">
+            `<div class="hex-${mode} hex-base" style="${css}" id="tile-${id}")>
+                  <div class="circle-${mode} circle-base font-size-wrap" id="circle-${id}">
                   </div>
               </div>`
     }
@@ -288,22 +288,21 @@ let fillTiles = () => {
             }
         }
         theTile.classList.add(tile.resource);
-        theCircle.innerHTML = `<h2 class="tile-chit-${mode}">${tile.chit}</h2>`
+        theTile.setAttribute("alt", tile.resource)
+        theCircle.innerHTML = `<div class="tile-chit-${mode} chit-number-base">${tile.chit}</div>`
 
-        let color = 'red'
 
         if (tile.chit == 8 || tile.chit == 6) {
             theTile.classList.add("high-prob")
         } else {
             theTile.classList.remove("high-prob")
-            color = 'black'
         }
 
         if (tile.resource == "desert") {
             theCircle.classList.add("desert-chit")
         } else {
             theCircle.classList.remove("desert-chit")
-            theCircle.innerHTML += `<h3 style='color:${color}'">${tile.probability}</>`
+            theCircle.innerHTML += `<div class="prob-dots-base small-font-size-wrap">${tile.probability}<div/>`
         }
     }
 }
