@@ -108,8 +108,10 @@ h2 {
 .prob-dots-base {
     padding: 0;
     margin: 0;
-    letter-spacing: -2px;
-    padding-right: 2px;
+    letter-spacing: -1px;
+    padding-right: 1px;
+    /* letter-spacing: -2px;
+    padding-right: 2px; */
     position: absolute;
     left: 50%;
     top: 72%;
