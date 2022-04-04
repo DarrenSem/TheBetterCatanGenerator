@@ -14,8 +14,6 @@ html, body {
 
 .myNav {
     width: 100%;
-
-
 }
 
 .myNav ul {
@@ -30,8 +28,6 @@ html, body {
 .myLi {
     display: inline;
     margin: 0 2px;
-
-
 }
 
 
@@ -75,8 +71,6 @@ html, body {
     /* position: relative; */
     /* float: left; */
     /* margin-top: 60px; */
-
-
     font-size: 20px;
 }
 
@@ -277,7 +271,6 @@ h2 {
 
 .settingViewToggle {
     visibility: hidden;
-    ;
 }
 
 
@@ -357,4 +350,4 @@ input[type="checkbox"] {
 
 }
 
-.description {}
+/* .description {} */
