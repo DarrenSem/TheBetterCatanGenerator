@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>The Better Catan Map Generator - Settlers of Catan Board Builder</title>
+    <title>The Better Catan Generator - Settlers of Catan Board Builder</title>
     <meta name="description"
-        content="Generate Settlers of Catan maps. Includes Expansion Pack support. Map generation options create a board following your custom house rules.">
+        content="Shuffle Settlers of Catan maps. Includes Expansion Pack support. Map generation options create a board following your custom house rules.">
 
     <link rel="stylesheet" type="text/css" href="./common.css">
     <link rel="stylesheet" type="text/css" href="./style_by_orientation.css">
@@ -15,33 +15,47 @@
 </head>
 
 <body>
-    <header class="newTitle" id="title">
-        <h1>The Better Catan Generator</h1>
-        <div class="donateWrapper">
-            <form id="paypalform" action="https://www.paypal.com/donate" method="post" target="_top">
-                <input type="hidden" name="business" value="VGXQCGB7S2XFQ" />
-                <input type="hidden" name="no_recurring" value="0" />
-                <input type="hidden" name="item_name"
-                    value="It costs money to host my projects. If you enjoy the generator & want to chip in / buy me coffee, this is the way :)" />
-                <input type="hidden" name="currency_code" value="USD" />
-                <input class="donatebutton" type="image"
-                    src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit"
-                    title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-                <imgalt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
 
-            </form>
+
+
+    <header class="newTitle" id="title">
+        <h1><span class="theBetterTitle">The Better</span><br>
+            <span class="catanTitle">Catan</span><br>
+            <span class="generatorTitle">Generator</span>
+        </h1>
+        <nav class="myNav">
+            <ul>
+                <li class="myLi">
+                    <a class="links" href="https://forms.gle/JuTFRjxeffMhPYss6" target="_blank">Submit Feedback</a>
+                </li>
+                <!-- <li class="myLi">
+                    <a class="links" href="https://forms.gle/JuTFRjxeffMhPYss6" target="_blank">Share</a>
+                </li>
+                <li class="myLi">
+                    <a class="links" href="https://forms.gle/JuTFRjxeffMhPYss6" target="_blank">Contact Me</a>
+                </li> -->
+                <li class="myLi">
+                    <a class="links" href="https://www.bunge.io" target="_blank">Tip Me</a>
+                </li>
+            </ul>
+
+
+        </nav>
+        <div class="description">
+            <p>Map builder for Settlers of Catan for Normal and Expansion pack. This website randomizes the board so
+                that you have choices before playing. Use the generation options to build a board that works for your
+                house rules. If you're interested in Seafarers or other expansion support, please leave feedback!</p>
         </div>
+        <section id="inline-options">
+            <button id="btnOps" type="button" class="commonOpsbutton" onclick="toggleOptions()">Options</button>
+            <button type="button" class="commonShuffle" onclick="generateBoard()">Shuffle</button>
+        </section>
+
         <section class="subHeaderWrapper">
-            <!-- <p>Map builder for Settlers of Catan.Try out the Expansion map (5-6 Players in the Options menu. Seafarers support coming soon!</p> -->
-            <div class="links"><a href="https://forms.gle/JuTFRjxeffMhPYss6" target="_blank">Submit Feedback</a>
-                <!-- <a href="https://forms.gle/JuTFRjxeffMhPYss6" target="_blank">Share</a>
-                <a href="https://forms.gle/JuTFRjxeffMhPYss6" target="_blank">Contact Me</a> -->
-            </div>
         </section>
     </header>
 
     <section class="commonNormalBoard board" id="board"></section>
-
     <section id="popmenu" class="menuToggle">
         <h2>Generation Custom Rules</h2><br>
         <div class="settingswrap">
@@ -72,11 +86,6 @@
             <button type="button" class="menuclosebutton" onclick="toggleOptions()">Close Options</button>
         </div>
 
-    </section>
-
-    <section id="options">
-        <button id="btnOps" type="button" class="optsbutton commonOpsbutton" onclick="toggleOptions()">Options</button>
-        <button type="button" class="shuffle commonShuffle" onclick="generateBoard()">Shuffle</button>
     </section>
     <footer></footer>
 </body>

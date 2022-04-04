@@ -4,22 +4,18 @@
         width: 100vh;
         height: 100vh;
         right: 0;
+        top: 0;
         position: absolute;
+        /* background: rgb(145, 122, 81); */
     }
 
-    #options {
-        position: absolute;
-        height: 65%;
-        width: calc(100vw - 100vh);
-        left: 0;
-        top: 35%;
-
-    }
 
     #title {
-        height: 35%;
+        min-height: 35%;
         width: calc(100vw - 100vh);
+        /* background: red; */
         left: 0;
+        position: relative;
     }
 
     .font-size-wrap {
@@ -30,57 +26,10 @@
         font-size: 3vh;
     }
 
-
-
-
-
-
-    #test-outer {
-        width: 98vh;
-        height: calc(98vh * 1.732050808 / 2);
-        height: 98vh;
-        background: rgb(74, 83, 87);
-        background: rgb(0, 153, 211);
-        position: absolute;
-        left: 50%;
-        overflow: hidden;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        /*rotate(30deg); */
-        overflow-x: hidden;
-        background-size: 100% 100%;
-        background: url(./newAssets/background_new3.png);
-    }
-
     .border-normal {
         width: 99vh;
         height: calc(99vh * 1.732050808 / 2);
     }
-
-    /* #borderExpanded {
-        width: 99vh;
-        height: calc(99vh * 1.732050808 / 2);
-        background: rgb(0, 153, 211);
-        position: absolute;
-        left: 50%;
-        overflow: hidden;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        overflow-x: hidden;
-        background-size: 100% 100%;
-        background-repeat: no-repeat
-    } */
-
-    .shuffle {
-        width: 25%;
-        height: 20%;
-    }
-
-    .optsbutton {
-        height: 20%;
-
-    }
-
 
 
 }
@@ -92,21 +41,22 @@
         height: 100vw;
         left: 50%;
         transform: translate(-50%, 0);
-        top: 15.5%;
-        position: absolute;
+
+        /* background: rgba(255, 166, 0, 0.582); */
+        position: relative;
     }
 
-    #options {
-        height: calc((100vh - 100vw)/2.5);
-        width: 100vw;
-        position: absolute;
-        bottom: 0;
-
+    #classic-options {
+        position: relative;
+        width: 100%;
+        /* background: yellow; */
     }
+
 
     #title {
-        height: 15%;
-        width: 100vw;
+        min-height: 15%;
+        /* background: rgba(123, 106, 139, 0.842); */
+        position: relative;
     }
 
     .font-size-wrap {
@@ -122,15 +72,6 @@
         height: calc(99vw * 1.732050808 / 2);
     }
 
-    .shuffle {
-        width: 25%;
-        height: 40%;
 
-    }
-
-    .optsbutton {
-        height: 40%;
-
-    }
 
 }
