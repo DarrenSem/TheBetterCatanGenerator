@@ -21,9 +21,9 @@ let size;
 // Determine the mode using the pick mode selector, set corresponding value for size.
 let mode = document.getElementById('pick-mode').value;
 if (mode == "normal") {
-    size = 17.2;
+    size = 17;
 } else {
-    size = 15;
+    size = 15.5;
 }
 
 //let shuftype = document.getElementById('pick-shuffle').value;

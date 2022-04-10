@@ -40,7 +40,7 @@ html, body {
     transform: translate(-50%, -50%);
     /*rotate(30deg); */
     overflow-x: hidden;
-    background: url(./newAssets/background_new3.png);
+    /* background: url(./newAssets/background_new3.png); */
     background-size: 100% 100%;
     background-repeat: no-repeat
 }
@@ -122,32 +122,26 @@ h2 {
 }
 
 .hex-normal {
-    height: 17.5%;
-    width: calc(17.5% * 1.732050808 / 2);
+    height: 17%;
+    width: calc(17% * 0.866);
     background: rgb(71, 70, 70);
-    /* POSITIONING */
     position: absolute;
-    left: 50%;
-    top: 50%;
     transform: translate(-50%, -50%);
     background-size: auto 100%;
     background-repeat: no-repeat
 }
 
 .hex-base {
-    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    -webkit-clip-path: polygon(50% 0%, 100% 28.87%, 100% 71.13%, 50% 100%, 0% 71.13%, 0% 28.87%);
+    clip-path: polygon(50% 0%, 100% 28.87%, 100% 71.13%, 50% 100%, 0% 71.13%, 0% 28.87%);
 }
 
 .hex-expanded {
     height: 15.5%;
-    width: calc(15.5% * 1.732050808 / 2);
+    width: calc(15.5% * 0.866);
     background: rgb(71, 70, 70);
-    /* POSITIONING */
     position: absolute;
     transform-origin: 50% 50%;
-    left: 50%;
-    top: 50%;
     transform: translate(-50%, -50%) rotate(90deg);
     background-size: auto 100%;
     background-repeat: no-repeat
@@ -203,40 +197,46 @@ h2 {
 /* mess with tile width calc or no repeat on the tiles */
 
 .sheep {
-    background: url(./newAssets/sheep_new.png);
-    background-size: auto 100%;
-    background-repeat: no-repeat
+    background: lime;
 }
 
 .wheat {
-    background: url(./newAssets/wheat_new.png);
-    background-size: auto 100%;
-    background-repeat: no-repeat
+    /* background: url(/design/tile.png); */
+    /* background-size: auto 100%;
+    background-repeat: no-repeat */
+    background: yellow;
 }
 
 .wood {
-    background: url(./newAssets/wood_new.png);
-    background-size: auto 100%;
+    /* background: url(/design/tile.png); */
+    background: forestgreen;
+    /* background: url(/design/tile.png); */
     background-repeat: no-repeat
 }
 
 .brick {
-    background: url(./newAssets/brick_new.png);
+    /* background: url(/design/tile.png); */
+    /* background: url(./newAssets/brick_new.png); */
     background-size: auto 100%;
-    background-repeat: no-repeat
+    background-repeat: no-repeat;
+    background: red;
 }
 
 .ore {
-    background: url(./newAssets/ore_new.png);
+    /* background: url(/design/tile.png); */
+
+    /* background: url(./newAssets/ore_new.png); */
     background-size: auto 100%;
-    background-repeat: no-repeat
+    background: rgb(232, 182, 255);
 }
 
 
 .desert {
-    background: url(./newAssets/desert_new.png);
+    /* background: #b87f06; */
+    /* background: url(/design/tile.png); */
+    /* background: url(./newAssets/desert_new.png); */
     background-size: auto 100%;
-    background-repeat: no-repeat
+    background-repeat: no-repeat;
 }
 
 .port {
