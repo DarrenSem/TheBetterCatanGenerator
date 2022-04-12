@@ -122,8 +122,8 @@ h2 {
 }
 
 .hex-normal {
-    height: 17%;
-    width: calc(17% * 0.866);
+    height: 17.5%;
+    width: calc(17.5% * 0.866);
     background: rgb(71, 70, 70);
     position: absolute;
     transform: translate(-50%, -50%);
