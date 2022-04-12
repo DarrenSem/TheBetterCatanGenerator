@@ -32,7 +32,7 @@ html, body {
 
 
 .normalBorderCommon {
-    background: rgb(0, 153, 211);
+    /* background: rgb(0, 153, 211); */
     position: absolute;
     left: 50%;
     overflow: hidden;
@@ -40,7 +40,7 @@ html, body {
     transform: translate(-50%, -50%);
     /*rotate(30deg); */
     overflow-x: hidden;
-    /* background: url(./newAssets/background_new3.png); */
+    background: url(./newAssets/background_new3.png);
     background-size: 100% 100%;
     background-repeat: no-repeat
 }
@@ -122,8 +122,8 @@ h2 {
 }
 
 .hex-normal {
-    height: 17%;
-    width: calc(17% * 0.866);
+    height: 18%;
+    width: calc(18% * 0.866);
     background: rgb(71, 70, 70);
     position: absolute;
     transform: translate(-50%, -50%);
@@ -132,13 +132,13 @@ h2 {
 }
 
 .hex-base {
-    -webkit-clip-path: polygon(50% 0%, 100% 28.87%, 100% 71.13%, 50% 100%, 0% 71.13%, 0% 28.87%);
-    clip-path: polygon(50% 0%, 100% 28.87%, 100% 71.13%, 50% 100%, 0% 71.13%, 0% 28.87%);
+    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
 
 .hex-expanded {
-    height: 15.5%;
-    width: calc(15.5% * 0.866);
+    height: 16%;
+    width: calc(16% * 0.866);
     background: rgb(71, 70, 70);
     position: absolute;
     transform-origin: 50% 50%;
@@ -197,46 +197,39 @@ h2 {
 /* mess with tile width calc or no repeat on the tiles */
 
 .sheep {
-    background: lime;
+    background: url(./newAssets/my_tile.png) no-repeat center;
+    background-size: 99% 99%;
+    /* background: lime; */
 }
 
 .wheat {
-    /* background: url(/design/tile.png); */
-    /* background-size: auto 100%;
-    background-repeat: no-repeat */
-    background: yellow;
+    background: url(./newAssets/my_tile.png) no-repeat center;
+    background-size: 99% 99%;
+    /* background: yellow; */
 }
 
 .wood {
-    /* background: url(/design/tile.png); */
-    background: forestgreen;
-    /* background: url(/design/tile.png); */
-    background-repeat: no-repeat
+    background: url(./newAssets/my_tile.png) no-repeat center;
+    background-size: 99% 99%;
+    /* background: forestgreen; */
 }
 
 .brick {
-    /* background: url(/design/tile.png); */
-    /* background: url(./newAssets/brick_new.png); */
-    background-size: auto 100%;
-    background-repeat: no-repeat;
-    background: red;
+    background: url(./newAssets/my_tile.png) no-repeat center;
+    background-size: 99% 99%;
+    /* background: red; */
 }
 
 .ore {
-    /* background: url(/design/tile.png); */
-
-    /* background: url(./newAssets/ore_new.png); */
-    background-size: auto 100%;
-    background: rgb(232, 182, 255);
+    background: url(./newAssets/my_tile.png) no-repeat center;
+    background-size: 99% 99%;
+    /* background: rgb(232, 182, 255); */
 }
 
 
 .desert {
-    /* background: #b87f06; */
-    /* background: url(/design/tile.png); */
-    /* background: url(./newAssets/desert_new.png); */
-    background-size: auto 100%;
-    background-repeat: no-repeat;
+    background: url(./newAssets/my_tile.png) no-repeat center;
+    background-size: 99% 99%;
 }
 
 .port {
