@@ -11,14 +11,13 @@ function getOffsets(size, mode) {
                 board.tiles_per_row = [3, 4, 5, 4, 3]
                 board.row_step = long_side * .73 //was 76
                 board.center_row = Math.floor(board.tiles_per_row.length / 2)
-                board.cell_step = small_side
+                board.cell_step = small_side * .99
                 break;
             case "expanded":
                 board.tiles_per_row = [1, 2, 3, 4, 3, 4, 3, 4, 3, 2, 1]
                 board.center_row = Math.floor(board.tiles_per_row.length / 2)
-                board.cell_step = long_side * 1.51
+                board.cell_step = long_side * 1.51 * .99
                 board.row_step = small_side / 1.99
-                board.tile_center_x_displacement = long_side * 1.578
                 break;
             case "seafarers":
                 break;
