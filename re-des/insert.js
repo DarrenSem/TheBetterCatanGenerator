@@ -11,6 +11,9 @@ state = {
     prob: ["", "", ".", "..", "...", "....", ".....", "", ".....", "....", "...", "..", ".",]
 }
 
+let normalSize = 17.5 //set to 18 when my images come out
+let expandedSize = 16
+
 let resourceTypes = ["ore", "sheep", "brick", "wood", "wheat", "desert"];
 
 // adjacencyList, given a tile number, lists tiles adjacent to that tile. Used for rule checking.
@@ -21,9 +24,9 @@ let size;
 // Determine the mode using the pick mode selector, set corresponding value for size.
 let mode = document.getElementById('pick-mode').value;
 if (mode == "normal") {
-    size = 17.2;
+    size = normalSize;
 } else {
-    size = 15;
+    size = expandedSize;
 }
 
 //let shuftype = document.getElementById('pick-shuffle').value;
@@ -78,10 +81,10 @@ let selectShuffle = () => {
 let selectMode = () => {
     mode = document.getElementById('pick-mode').value;
     if (mode == "normal") {
-        size = 17.2;
+        size = normalSize
 
     } else {
-        size = 15;
+        size = expandedSize;
     }
     flipSameResourceSetting()
     tileOffsetCSS = getOffsets(size, mode);
