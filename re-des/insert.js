@@ -11,7 +11,7 @@ state = {
     prob: ["", "", ".", "..", "...", "....", ".....", "", ".....", "....", "...", "..", ".",]
 }
 
-let normalSize = 18
+let normalSize = 17 //set to 18 when my images come out
 let expandedSize = 16
 
 let resourceTypes = ["ore", "sheep", "brick", "wood", "wheat", "desert"];

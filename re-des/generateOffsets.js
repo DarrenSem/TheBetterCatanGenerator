@@ -9,7 +9,7 @@ function getOffsets(size, mode) {
         switch (mode) {
             case "normal":
                 board.tiles_per_row = [3, 4, 5, 4, 3]
-                board.row_step = long_side * .76
+                board.row_step = long_side * .75 //was 76
                 board.center_row = Math.floor(board.tiles_per_row.length / 2)
                 board.cell_step = small_side
                 break;

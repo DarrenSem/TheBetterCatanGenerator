@@ -122,8 +122,8 @@ h2 {
 }
 
 .hex-normal {
-    height: 18%;
-    width: calc(18% * 0.866);
+    height: 17%;
+    width: calc(17% * 0.866);
     background: rgb(71, 70, 70);
     position: absolute;
     transform: translate(-50%, -50%);
@@ -197,38 +197,46 @@ h2 {
 /* mess with tile width calc or no repeat on the tiles */
 
 .sheep {
-    background: url(./newAssets/my_tile.png) no-repeat center;
+    /* background: url(./newAssets/my_tile.png) no-repeat center;
+    background-size: 99% 99%; */
+    background: url(./newAssets/sheep_new.png) no-repeat center;
     background-size: 99% 99%;
-    /* background: lime; */
 }
 
 .wheat {
-    background: url(./newAssets/my_tile.png) no-repeat center;
+    /* background: url(./newAssets/my_tile.png) no-repeat center;
+    background-size: 99% 99%; */
+    background: url(./newAssets/wheat_new.png) no-repeat center;
     background-size: 99% 99%;
-    /* background: yellow; */
 }
 
 .wood {
-    background: url(./newAssets/my_tile.png) no-repeat center;
+    /* background: url(./newAssets/my_tile.png) no-repeat center;
+    background-size: 99% 99%; */
+    background: url(./newAssets/wood_new.png) no-repeat center;
     background-size: 99% 99%;
-    /* background: forestgreen; */
+
 }
 
 .brick {
-    background: url(./newAssets/my_tile.png) no-repeat center;
+    /* background: url(./newAssets/my_tile.png) no-repeat center;
+    background-size: 99% 99%; */
+    background: url(./newAssets/brick_new.png) no-repeat center;
     background-size: 99% 99%;
-    /* background: red; */
 }
 
 .ore {
-    background: url(./newAssets/my_tile.png) no-repeat center;
+    /* background: url(./newAssets/my_tile.png) no-repeat center;
+    background-size: 99% 99%; */
+    background: url(./newAssets/ore_new.png) no-repeat center;
     background-size: 99% 99%;
-    /* background: rgb(232, 182, 255); */
 }
 
 
 .desert {
-    background: url(./newAssets/my_tile.png) no-repeat center;
+    /* background: url(./newAssets/my_tile.png) no-repeat center;
+    background-size: 99% 99%; */
+    background: url(./newAssets/desert_new.png) no-repeat center;
     background-size: 99% 99%;
 }
 
