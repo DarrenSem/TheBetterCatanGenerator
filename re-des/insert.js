@@ -16,6 +16,8 @@ let expandedSize = 16
 
 let resourceTypes = ["ore", "sheep", "brick", "wood", "wheat", "desert"];
 
+// let ports = ["wood-port", "wheat-port", "sheep-port", "brick-port", "three-port", "ore-port", "three-port", "three-port", "three-port",]
+
 // adjacencyList, given a tile number, lists tiles adjacent to that tile. Used for rule checking.
 let adjacencyList;
 
