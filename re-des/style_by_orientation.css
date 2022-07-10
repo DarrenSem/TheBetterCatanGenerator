@@ -9,7 +9,6 @@
         /* background: rgb(145, 122, 81); */
     }
 
-
     #title {
         min-height: 35%;
         width: calc(100vw - 100vh);
@@ -30,8 +29,6 @@
         width: 99vh;
         height: calc(99vh * 1.732050808 / 2);
     }
-
-
 }
 
 @media all and (orientation: portrait) {
@@ -52,7 +49,6 @@
         /* background: yellow; */
     }
 
-
     #title {
         min-height: 15%;
         /* background: rgba(123, 106, 139, 0.842); */
@@ -71,7 +67,4 @@
         width: 99vw;
         height: calc(99vw * 1.732050808 / 2);
     }
-
-
-
 }
