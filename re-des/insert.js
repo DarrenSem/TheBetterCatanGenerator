@@ -236,7 +236,7 @@ let shuffleIsValid = (tiles) => {
 
 
 
-    console.log(adjacent_6_8)
+//// console.log(adjacent_6_8)	// ?why log this? Because THIS is the reason for the LAGGY response (it logs it 50k+ times!)
 
     if (!adjacent_6_8) {
         validShuffle &&= passedAdjacencyTest(tiles, 6, 8)
